@@ -1,13 +1,17 @@
 import React, { memo } from 'react';
 import { View } from 'react-native';
+// Lottie
 import LottieView from 'lottie-react-native';
-import { useTheme } from '@useTheme';
+// Styles
+import { useTheme } from '@theme';
 import { createStyles } from './styles';
 
+// Lottie Animation
 const loader = require('@assets/lottie/animation.json');
 
 const RequestLoader = memo(() => {
 
+  // Style
   const styles = useTheme(createStyles);
 
   return (

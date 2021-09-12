@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { Modal as ModalComponent, Pressable, TouchableHighlight, TouchableWithoutFeedback, View } from 'react-native';
 import { Icon } from '@icons';
 import { Button, Text } from '@components';
@@ -35,19 +35,18 @@ export const Modal = (_props) => {
     onPressButton,
   } = props?.isVisible ? props : _props;
 
-  const getHelper = (d) => {
-    switch (d) {
+  const getIconName = useCallback(() => {
+    switch (type) {
       case 'error':
-        return {iconName: 'Error'};
+        return { iconName: 'Error' };
       case 'success':
-        return {iconName: 'Success'};
+        return { iconName: 'Success' };
       default:
-        return {iconName: 'ModalInfo'};
+        return { iconName: 'ModalInfo' };
     }
-  }
+  }, [type]);
 
-  const helper = getHelper(type)
-
+  const helper = getIconName();
 
   const align = modalAlign === 'top' ? 'flex-start' : modalAlign === 'bottom' ? 'flex-end' : 'center';
   const bottomSpace = modalAlign === 'bottom' ? insets.bottom : modalAlign === 'top' ? insets.top : null;

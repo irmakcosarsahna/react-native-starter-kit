@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { ACTIVE_TRANSLATION } from '../constants';
+import { ACTIVE_TRANSLATION } from '@constants';
 
 const useTranslate = (text = '') => {
   const { t } = useTranslation();

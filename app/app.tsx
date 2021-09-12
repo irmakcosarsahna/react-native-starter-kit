@@ -1,6 +1,6 @@
 import React from 'react';
 import { initialWindowMetrics, SafeAreaProvider } from 'react-native-safe-area-context';
-// Modules
+// Redux
 import { Provider } from 'react-redux';
 // Store
 import { PersistGate } from 'redux-persist/integration/react';
@@ -11,8 +11,8 @@ import { enableScreens } from 'react-native-screens';
 import { RootNavigator, useNavigationPersistence } from '@navigators';
 // I18n
 import '@utils/i18next';
+// Constants
 import { NAVIGATION_PERSISTENCE_KEY } from '@constants';
-
 
 enableScreens();
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { HomeStack } from '../stacks';
-import { color, colors } from '../../theme';
+import { colors } from '@theme';
 
 export type PrimaryParamList = {
   homeStack: undefined;

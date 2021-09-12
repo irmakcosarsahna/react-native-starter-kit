@@ -1,9 +1,9 @@
 import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
+import { NavigationContainer } from '@react-navigation/native';
 import analytics from '@react-native-firebase/analytics';
-import {MainNavigator} from './main-navigator';
+import { MainNavigator } from './main-navigator';
 // Root Navigation
-import {navigationRef, routeNameRef} from '../utils/navigation';
+import { navigationRef, routeNameRef } from '../utils/navigation';
 
 // state Change
 const onStateChange = async () => {

@@ -1,10 +1,10 @@
-import React, {useState} from 'react';
-import {FlatList, Pressable, View} from 'react-native';
-import {Modal, Text} from '@components';
-import {Icon} from '@icons';
+import React, { useState } from 'react';
+import { FlatList, Pressable, View } from 'react-native';
+import { Modal, Text } from '@components';
+import { Icon } from '@icons';
 import _ from 'lodash';
 import styles from './style';
-import {SortModalProps} from './sort-modal.props';
+import { SortModalProps } from './sort-modal.props';
 
 export const SortModal = (props: SortModalProps) => {
   // Props

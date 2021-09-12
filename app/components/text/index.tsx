@@ -1,10 +1,10 @@
 import * as React from 'react';
-import {Pressable, Text as ReactNativeText} from 'react-native';
-import {flatten, mergeAll} from 'ramda';
-import _ from "lodash";
-import {presets} from './text.presets';
-import {TextProps} from './text.props';
-import {useTranslate} from "../../hooks";
+import { Pressable, Text as ReactNativeText } from 'react-native';
+import { flatten, mergeAll } from 'ramda';
+import _ from 'lodash';
+import { presets } from './text.presets';
+import { TextProps } from './text.props';
+import { useTranslate } from '../../hooks';
 
 const Text = (props: TextProps) => {
     const {

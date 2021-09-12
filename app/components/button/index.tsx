@@ -1,9 +1,9 @@
 import * as React from 'react';
-import {Pressable} from 'react-native';
-import {flatten, mergeAll} from 'ramda';
-import {Text} from '../text';
-import {textPresets, viewPresets} from './button.presets';
-import {ButtonProps} from './button.props';
+import { Pressable } from 'react-native';
+import { flatten, mergeAll } from 'ramda';
+import { Text } from '../text';
+import { textPresets, viewPresets } from './button.presets';
+import { ButtonProps } from './button.props';
 
 export const Button = (props: ButtonProps) => {
   const {
@@ -23,7 +23,8 @@ export const Button = (props: ButtonProps) => {
   const content = children || <Text text={text} style={textStyle} color={textColor}/>;
 
   return (
-    <Pressable disabled={disable} style={[viewStyle, disable && { opacity: 0.5 }]} {...rest}>
+    <Pressable disabled={disable}
+               style={[viewStyle, disable && { opacity: 0.5 }]} {...rest}>
       {content}
     </Pressable>
   );

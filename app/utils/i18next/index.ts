@@ -2,7 +2,7 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import * as RNLocalize from 'react-native-localize';
 import { en, tr } from './locales';
-import { DEFAULT_LANGUAGE, SUPPORTED_LANGUAGES } from '../../constants';
+import { DEFAULT_LANGUAGE, SUPPORTED_LANGUAGES } from '@constants';
 import _ from 'lodash';
 
 // Resources

@@ -1,7 +1,7 @@
 import React from 'react';
-import {View} from 'react-native';
+import { View } from 'react-native';
 // Components
-import {Text} from '@components';
+import { Text } from '@components';
 // Styles
 import styles from './styles';
 

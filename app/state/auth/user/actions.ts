@@ -2,8 +2,8 @@
 import api from '@services/api';
 // Types
 import * as Types from './types';
-import {failureGenerate, requestGenerate, successGenerate} from '../../common';
-import {requestActionProps} from '../../common/common.props';
+import { failureGenerate, requestGenerate, successGenerate } from '../../common';
+import { requestActionProps } from '../../common/common.props';
 
 // Login action
 const actionLogin = (payload: { email: string; password: string }, callback): requestActionProps => ({

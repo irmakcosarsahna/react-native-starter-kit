@@ -1,4 +1,4 @@
-import {AsyncStorage} from './async-storage';
+import { AsyncStorage } from './async-storage';
 
 /**
  * Loads a string from storage.

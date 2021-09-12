@@ -1,8 +1,8 @@
 // Types
 import * as Types from './types';
 // Helpers
-import {successGenerate} from '../../common';
-import {authUserProps} from './user.props';
+import { successGenerate } from '../../common';
+import { authUserProps } from './user.props';
 
 const INIT_STATE: authUserProps = {
   token: '',

@@ -2,7 +2,7 @@
 // Helpers
 
 import _ from 'lodash';
-import {successGenerate} from '../../common';
+import { successGenerate } from '../../common';
 import * as Types from '../files/types';
 
 const INIT_STATE = {

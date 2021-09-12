@@ -1,6 +1,6 @@
 import _ from 'lodash';
-import {ADD_ERRORS, ADD_QUEUE, FLUSH_QUEUE, REMOVE_ERRORS, REMOVE_QUEUE} from './types';
-import {commonProps} from './common.props';
+import { ADD_ERRORS, ADD_QUEUE, FLUSH_QUEUE, REMOVE_ERRORS, REMOVE_QUEUE } from './types';
+import { commonProps } from './common.props';
 
 const INIT_STATE: commonProps = {
   queue: {},

@@ -1,8 +1,8 @@
-import _ from "lodash";
-import {colors} from "../colors";
-import {typography} from "../typography";
-import {timing} from "../timing";
-import {spacing} from "../spacing";
+import _ from 'lodash';
+import { colors } from '../colors';
+import { typography } from '../typography';
+import { timing } from '../timing';
+import { spacing } from '../spacing';
 
 const getColor = (type: string) => _.get(colors, type) || {};
 

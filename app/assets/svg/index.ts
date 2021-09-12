@@ -5,7 +5,7 @@ import Profile from './profile.svg';
 import Search from './search.svg';
 import ShoppingCart from './shopping-cart.svg';
 import Fruits from './fruits.svg';
-import {colors} from "../../theme";
+import { colors } from '../../theme';
 
 const icons = {
   Home,

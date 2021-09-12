@@ -1,5 +1,5 @@
 import moment from 'moment';
-import {Platform} from 'react-native';
+import { Platform } from 'react-native';
 import _ from 'lodash';
 import 'intl';
 import 'intl/locale-data/jsonp/tr';

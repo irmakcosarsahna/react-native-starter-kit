@@ -1,6 +1,6 @@
-import {StyleSheet, TextStyle, ViewStyle} from 'react-native';
-import {spacing} from '@theme';
-import {colors} from "../../theme";
+import { StyleSheet, TextStyle, ViewStyle } from 'react-native';
+import { spacing } from '@theme';
+import { colors } from '../../theme';
 
 type styles = {
   input: ViewStyle;

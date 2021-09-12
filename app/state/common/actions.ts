@@ -1,5 +1,5 @@
-import {ADD_ERRORS, ADD_QUEUE, CLEAR, FLUSH_QUEUE, REMOVE_ERRORS, REMOVE_QUEUE} from './types';
-import {failureGenerate, requestGenerate, successGenerate} from './helpers';
+import { ADD_ERRORS, ADD_QUEUE, CLEAR, FLUSH_QUEUE, REMOVE_ERRORS, REMOVE_QUEUE } from './types';
+import { failureGenerate, requestGenerate, successGenerate } from './helpers';
 
 const actionClear = (payload = {}) => ({ type: CLEAR, payload });
 

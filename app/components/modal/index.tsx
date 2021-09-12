@@ -1,14 +1,14 @@
 import React from 'react';
-import {Modal as ModalComponent, Pressable, TouchableHighlight, TouchableWithoutFeedback, View} from 'react-native';
-import {Icon} from '@icons';
-import {Button, Text} from '@components';
-import {color} from '@theme';
-import {useDispatch, useSelector} from 'react-redux';
-import {actionClearModal} from '@state/modal';
+import { Modal as ModalComponent, Pressable, TouchableHighlight, TouchableWithoutFeedback, View } from 'react-native';
+import { Icon } from '@icons';
+import { Button, Text } from '@components';
+import { color } from '@theme';
+import { useDispatch, useSelector } from 'react-redux';
+import { actionClearModal } from '@state/modal';
 import _ from 'lodash';
-import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import styles from './style';
-import {colors} from "../../theme";
+import { colors } from '../../theme';
 
 export const Modal = (_props) => {
   // Selector

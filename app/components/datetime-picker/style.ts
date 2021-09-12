@@ -1,5 +1,5 @@
-import {StyleSheet, TextStyle, ViewStyle} from 'react-native';
-import {colors, spacing} from "../../theme";
+import { StyleSheet, TextStyle, ViewStyle } from 'react-native';
+import { colors, spacing } from '../../theme';
 
 type styles = {
   container: ViewStyle;

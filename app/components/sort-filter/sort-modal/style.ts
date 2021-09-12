@@ -1,6 +1,6 @@
-import {StyleSheet, TextStyle, ViewStyle} from 'react-native';
-import {spacing, typography} from '@theme';
-import {colors} from "../../../theme";
+import { StyleSheet, TextStyle, ViewStyle } from 'react-native';
+import { spacing, typography } from '@theme';
+import { colors } from '../../../theme';
 
 type styles = {
   modal?: ViewStyle;

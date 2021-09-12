@@ -1,7 +1,7 @@
 import * as yup from 'yup';
 import _ from 'lodash';
-import {tradeDeliverValidation} from './tradeDeliverValidation';
-import {tradeVariantSubValidation} from './tradeVariantSubValidation';
+import { tradeDeliverValidation } from './tradeDeliverValidation';
+import { tradeVariantSubValidation } from './tradeVariantSubValidation';
 
 // Validation
 const tradeVariantsValidation = (t, key = 'variants', variants = {}) => {

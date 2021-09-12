@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {CommonActions, StackActions} from '@react-navigation/native';
+import { CommonActions, StackActions } from '@react-navigation/native';
 
 // Router Name Ref
 const routeNameRef = React.createRef();

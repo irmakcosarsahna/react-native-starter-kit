@@ -1,5 +1,5 @@
-import {PressableProps, TextStyle, ViewStyle} from 'react-native';
-import {ButtonPresetNames} from './button.presets';
+import { PressableProps, TextStyle, ViewStyle } from 'react-native';
+import { ButtonPresetNames } from './button.presets';
 
 export interface ButtonProps extends PressableProps {
   text?: string;

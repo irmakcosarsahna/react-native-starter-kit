@@ -1,7 +1,7 @@
 import * as React from 'react';
-import {TextProps} from '../text.props';
-import {Text} from '../index';
-import {colors} from '../../../theme';
+import { TextProps } from '../text.props';
+import { Text } from '../index';
+import { colors } from '../../../theme';
 
 const ErrorText = (props: TextProps) => {
     const {text, error, style} = props;

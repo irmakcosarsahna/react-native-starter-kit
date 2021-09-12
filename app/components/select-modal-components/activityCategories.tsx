@@ -1,8 +1,8 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
-import {Icon} from '@icons';
-import {colors, spacing} from '../../theme';
-import {Text} from '../text';
+import { StyleSheet, View } from 'react-native';
+import { Icon } from '@icons';
+import { colors, spacing } from '../../theme';
+import { Text } from '../text';
 
 // Render City
 const ActivityCategories = ({ item, selected }) => (

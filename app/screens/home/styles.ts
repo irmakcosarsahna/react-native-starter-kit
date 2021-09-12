@@ -1,5 +1,5 @@
-import {Dimensions, Platform, StyleSheet} from 'react-native';
-import {colors} from '../../theme';
+import { Dimensions, Platform, StyleSheet } from 'react-native';
+import { colors } from '../../theme';
 
 const { height, width } = Dimensions.get('window');
 

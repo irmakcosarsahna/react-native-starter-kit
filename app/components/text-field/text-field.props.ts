@@ -1,4 +1,4 @@
-import {TextInputProps, TextStyle, ViewStyle} from 'react-native';
+import { TextInputProps, TextStyle, ViewStyle } from 'react-native';
 
 const PRESETS: { [name: string]: ViewStyle } = {
   default: {},

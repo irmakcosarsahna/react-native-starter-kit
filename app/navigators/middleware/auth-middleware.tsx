@@ -1,11 +1,11 @@
-import {useEffect} from 'react';
+import { useEffect } from 'react';
 // Packages
 import SplashScreen from 'react-native-splash-screen';
 import * as yup from 'yup';
 // Translation
-import {useTranslation} from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 // Redux
-import {useSelector} from 'react-redux';
+import { useSelector } from 'react-redux';
 
 // Start
 const StartMiddleware = ({navigation}) => {

@@ -1,13 +1,13 @@
-import React, {memo, useState} from 'react';
-import {Pressable, View} from 'react-native';
-import {Icon} from '@icons/';
-import {Text} from '@components';
+import React, { memo, useState } from 'react';
+import { Pressable, View } from 'react-native';
+import { Icon } from '@icons/';
+import { Text } from '@components';
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
 import _ from 'lodash';
 import moment from 'moment';
 import styles from './style';
-import {DateTimePickerProps} from './datetime-picker.props';
-import {colors} from "../../theme";
+import { DateTimePickerProps } from './datetime-picker.props';
+import { colors } from '../../theme';
 
 const DateTimePicker = memo((props: DateTimePickerProps) => {
 

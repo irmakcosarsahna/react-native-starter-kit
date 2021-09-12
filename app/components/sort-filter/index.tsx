@@ -1,9 +1,9 @@
-import React, {useState} from 'react';
-import {Pressable, View} from 'react-native';
-import {Text} from '@components';
-import {Icon} from '@icons';
-import {SortModal} from './sort-modal';
-import {SortFilterProps} from './sort-filter.props';
+import React, { useState } from 'react';
+import { Pressable, View } from 'react-native';
+import { Text } from '@components';
+import { Icon } from '@icons';
+import { SortModal } from './sort-modal';
+import { SortFilterProps } from './sort-filter.props';
 import styles from './style';
 
 export const SortFilter = (props: SortFilterProps) => {

@@ -1,8 +1,8 @@
 import axios from 'axios';
 import _ from 'lodash';
 import perf from '@react-native-firebase/perf';
-import {store} from '../state/ROOT';
-import {REQUEST_URL} from "../constants";
+import { store } from '../state/ROOT';
+import { REQUEST_URL } from '../constants';
 
 // Base Url Prefix "/"
 export const baseURL = `${REQUEST_URL}/`;

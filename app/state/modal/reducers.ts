@@ -1,4 +1,4 @@
-import {CLEAR, MAKE_VISIBLE} from './types';
+import { CLEAR, MAKE_VISIBLE } from './types';
 
 const INIT_STATE = {
   isVisible: false,

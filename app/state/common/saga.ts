@@ -1,13 +1,13 @@
-import {actionChannel, call, put, select, take, takeEvery} from 'redux-saga/effects';
+import { actionChannel, call, put, select, take, takeEvery } from 'redux-saga/effects';
 import apiAxios from '@services/api';
 import _ from 'lodash';
 import NetInfo from '@react-native-community/netinfo';
-import {actionAddErrors, actionAddQueue, actionRemoveQueue, actionSuccess} from './actions';
-import {ADD_QUEUE} from './types';
-import {actionLoginSuccess, actionLogoutSuccess, LOGIN, SOCIAL_LOGIN} from '../auth/user';
-import {replace} from '../../utils';
-import {configProps, requestActionProps} from './common.props';
-import {actionModal} from '../modal';
+import { actionAddErrors, actionAddQueue, actionRemoveQueue, actionSuccess } from './actions';
+import { ADD_QUEUE } from './types';
+import { actionLoginSuccess, actionLogoutSuccess, LOGIN, SOCIAL_LOGIN } from '../auth/user';
+import { replace } from '../../utils';
+import { configProps, requestActionProps } from './common.props';
+import { actionModal } from '../modal';
 
 const configDefault: configProps = {
   errorModal: true,

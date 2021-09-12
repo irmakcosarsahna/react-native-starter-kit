@@ -2,8 +2,8 @@
 import api from '@services/api';
 // Types
 import * as Types from './types';
-import {requestGenerate} from '../../common';
-import {requestActionProps} from '../../common/common.props';
+import { requestGenerate } from '../../common';
+import { requestActionProps } from '../../common/common.props';
 
 // Company File upload
 const actionCompanyFileUpload = (payload: { type: string }, type, callback): requestActionProps => ({

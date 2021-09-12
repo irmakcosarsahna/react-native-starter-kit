@@ -1,7 +1,7 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
-import {Icon} from '@icons';
-import {colors, spacing} from '../../theme';
+import { StyleSheet, View } from 'react-native';
+import { Icon } from '@icons';
+import { colors, spacing } from '../../theme';
 
 // Render City
 const AddressRenderItem = ({ item, selected }) => (

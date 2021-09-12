@@ -1,9 +1,9 @@
 // Gender Render Item
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
-import {Icon} from '@icons';
-import {colors, spacing} from '../../theme';
-import {Text} from '../text';
+import { StyleSheet, View } from 'react-native';
+import { Icon } from '@icons';
+import { colors, spacing } from '../../theme';
+import { Text } from '../text';
 
 const GenderRenderItem = ({ item, selected }) => (
     <View style={styles.root}>

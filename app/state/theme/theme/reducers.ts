@@ -1,7 +1,7 @@
 // Types
-import {SET} from "./types";
+import { SET } from './types';
 // Props
-import {themeProps} from "./theme.props";
+import { themeProps } from './theme.props';
 
 const INIT_STATE: themeProps = {
   type: 'default'

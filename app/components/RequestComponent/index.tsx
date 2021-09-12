@@ -1,10 +1,10 @@
-import React, {memo} from 'react';
+import React, { memo } from 'react';
 
-import {useSelector} from 'react-redux';
+import { useSelector } from 'react-redux';
 import _ from 'lodash';
-import {StyleSheet, View} from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import LottieView from 'lottie-react-native';
-import {colors} from "../../theme";
+import { colors } from '../../theme';
 
 const loader = require('@assets/lottie/animation.json')
 

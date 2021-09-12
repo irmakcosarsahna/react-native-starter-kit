@@ -1,11 +1,11 @@
-import React, {useEffect, useState} from 'react';
-import {Keyboard, Pressable, StyleSheet, View} from 'react-native';
-import {Text} from '@components';
-import {color} from '@theme';
-import {Icon} from '@icons';
+import React, { useEffect, useState } from 'react';
+import { Keyboard, Pressable, StyleSheet, View } from 'react-native';
+import { Text } from '@components';
+import { color } from '@theme';
+import { Icon } from '@icons';
 import LinearGradient from 'react-native-linear-gradient';
 import Tabbar from './tab-bar';
-import {colors} from "../../theme";
+import { colors } from '../../theme';
 
 export default function TabBar({ state, descriptors, navigation }) {
   const [showTab, setShowTab] = useState(true);

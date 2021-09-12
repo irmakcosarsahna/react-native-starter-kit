@@ -1,10 +1,10 @@
-import {applyMiddleware, combineReducers, compose, createStore} from 'redux';
+import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
 import createSagaMiddleware from 'redux-saga';
-import {persistReducer, persistStore} from 'redux-persist'; // defaults to localStorage for web
+import { persistReducer, persistStore } from 'redux-persist'; // defaults to localStorage for web
 import rootSaga from './middleware/saga';
 import * as reducers from './reducers';
-import {common as commonPersistConfig, root as rootPersistConfig} from './config';
-import {successGenerate} from '../common';
+import { common as commonPersistConfig, root as rootPersistConfig } from './config';
+import { successGenerate } from '../common';
 import * as Types from '../auth/user/types';
 
 const sagaMiddleware = createSagaMiddleware();

@@ -1,6 +1,6 @@
 import React from 'react';
 // Components
-import {Modal, RequestComponent} from '@components';
+import { Modal, RequestComponent } from '@components';
 
 const withNetwork = (WrappedComponent) => (props) => (
     <>

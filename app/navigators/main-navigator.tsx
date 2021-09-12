@@ -1,18 +1,9 @@
 import React from 'react';
-import {createStackNavigator} from '@react-navigation/stack';
-import {withNetwork} from '@hocs';
+import { createStackNavigator } from '@react-navigation/stack';
+import { withNetwork } from '@hocs';
 // Hocs
-import {StartMiddleware} from './middleware';
-import {
-    FriendsScreen,
-    GameScreen,
-    HistoryScreen,
-    HomeScreen,
-    MarketScreen,
-    RatingScreen,
-    SettingsScreen,
-    WelcomeScreen
-} from "../screens";
+import { StartMiddleware } from './middleware';
+import { HomeScreen, WelcomeScreen } from '../screens';
 
 export type PrimaryParamList = {
     bottomTab: undefined;

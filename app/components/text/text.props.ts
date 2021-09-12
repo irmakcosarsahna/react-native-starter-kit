@@ -1,5 +1,5 @@
-import {TextProps as TextProperties, TextStyle, ViewStyle} from 'react-native';
-import {TextPresets} from './text.presets';
+import { TextProps as TextProperties, TextStyle, ViewStyle } from 'react-native';
+import { TextPresets } from './text.presets';
 
 export interface TextProps extends TextProperties {
   children?: React.ReactNode;

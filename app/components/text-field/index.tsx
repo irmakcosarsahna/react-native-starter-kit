@@ -1,14 +1,14 @@
-import React, {useState} from 'react';
-import {Pressable, TextInput, TextStyle, View, ViewStyle} from 'react-native';
-import {color} from '@theme';
-import {flatten, mergeAll} from 'ramda';
-import {Icon} from '@icons';
-import {TextInputMask} from 'react-native-masked-text';
+import React, { useState } from 'react';
+import { Pressable, TextInput, TextStyle, View, ViewStyle } from 'react-native';
+import { color } from '@theme';
+import { flatten, mergeAll } from 'ramda';
+import { Icon } from '@icons';
+import { TextInputMask } from 'react-native-masked-text';
 import TextFieldProps from './text-field.props';
 import styles from './style';
-import {Text} from '../text';
-import {useTranslate} from "../../hooks";
-import {colors} from "../../theme";
+import { Text } from '../text';
+import { useTranslate } from '../../hooks';
+import { colors } from '../../theme';
 
 const PRESETS: { [name: string]: ViewStyle } = {
   default: {},

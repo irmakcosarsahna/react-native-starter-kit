@@ -1,6 +1,6 @@
 import * as React from 'react';
-import {Platform} from 'react-native';
-import Svg, {Defs, G, Path} from 'react-native-svg';
+import { Platform } from 'react-native';
+import Svg, { Defs, G, Path } from 'react-native-svg';
 
 function SvgTabbar(props) {
   return (

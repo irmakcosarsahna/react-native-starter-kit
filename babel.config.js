@@ -19,6 +19,7 @@ module.exports = {
           "@theme": "./app/theme/",
           "@screens": "./app/screens/",
           "@constants": "./app/constants/",
+          "@navigators": "./app/navigators/",
         },
       },
     ],

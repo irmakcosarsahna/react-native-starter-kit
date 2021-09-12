@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Pressable, TextInput, TextStyle, View, ViewStyle } from 'react-native';
 import { color } from '@theme';
-import { flatten, mergeAll } from 'ramda';
 import { Icon } from '@icons';
 import { TextInputMask } from 'react-native-masked-text';
 import TextFieldProps from './text-field.props';
@@ -9,12 +8,13 @@ import styles from './style';
 import { Text } from '../text';
 import { useTranslate } from '../../hooks';
 import { colors } from '../../theme';
+import _ from 'lodash';
 
 const PRESETS: { [name: string]: ViewStyle } = {
   default: {},
 };
 
-const enhance = (style, styleOverride) => mergeAll(flatten([style, styleOverride]));
+const enhance = (style, styleOverride) => _.merge(_.flatten([style, styleOverride]));
 
 export const TextField = (props: TextFieldProps) => {
   const [isFocus, onFocusChange] = useState(false);

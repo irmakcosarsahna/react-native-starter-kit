@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { Pressable } from 'react-native';
-import { flatten, mergeAll } from 'ramda';
 import { Text } from '../text';
 import { textPresets, viewPresets } from './button.presets';
 import { ButtonProps } from './button.props';
+import _ from 'lodash';
 
 export const Button = (props: ButtonProps) => {
   const {
@@ -17,10 +17,10 @@ export const Button = (props: ButtonProps) => {
     ...rest
   } = props;
 
-  const viewStyle = mergeAll(flatten([viewPresets[preset] || viewPresets.primary, styleOverride]));
-  const textStyle = mergeAll(flatten([textPresets[preset] || textPresets.primary, textStyleOverride]));
+  const viewStyle = _.merge(_.flatten([viewPresets[preset] || viewPresets.primary, styleOverride]));
+  const textStyle = _.merge(_.flatten([textPresets[preset] || textPresets.primary, textStyleOverride]));
 
-  const content = children || <Text text={text} style={textStyle} color={textColor}/>;
+  const content = children || <Text text={text} style={textStyle} color={textColor} />;
 
   return (
     <Pressable disabled={disable}

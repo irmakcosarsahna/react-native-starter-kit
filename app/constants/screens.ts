@@ -1,6 +1,6 @@
 const START = 'StartMiddleware';
 const WELCOME = 'WelcomeScreen';
-const HOME = 'WelcomeScreen';
+const HOME = 'HomeScreen';
 
 
 export {

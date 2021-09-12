@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { Pressable, Text as ReactNativeText } from 'react-native';
-import { flatten, mergeAll } from 'ramda';
 import _ from 'lodash';
 import { presets } from './text.presets';
 import { TextProps } from './text.props';
@@ -27,8 +26,8 @@ const Text = (props: TextProps) => {
     const content = i18nText || children;
 
     // Style
-    const style = mergeAll(
-        flatten([
+    const style = _.merge(
+        _.flatten([
             presets[type] || presets.default,
             styleOverride,
             color && {color},

@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { TextInput, TextStyle, View, ViewStyle } from 'react-native';
 import { Text } from '@components';
-import { flatten, mergeAll } from 'ramda';
 import { TextAreaProps } from './text-area.prop';
 import styles from './style';
 import { colors } from '../../theme';
+import _ from 'lodash';
 
-const enhance = (style, styleOverride) => mergeAll(flatten([style, styleOverride]));
+const enhance = (style, styleOverride) => _.merge(_.flatten([style, styleOverride]));
 
 export const TextArea = (props: TextAreaProps) => {
 

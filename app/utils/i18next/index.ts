@@ -4,6 +4,10 @@ import * as RNLocalize from 'react-native-localize';
 import { en, tr } from './locales';
 import { DEFAULT_LANGUAGE, SUPPORTED_LANGUAGES } from '@constants';
 import _ from 'lodash';
+import 'moment/locale/tr';
+import moment from 'moment';
+
+moment().locale('tr');
 
 // Resources
 const resources = { en: { translation: { ...en } }, tr: { translation: { ...tr } } };
@@ -29,5 +33,6 @@ i18n
           react: { useSuspense: false, bindI18n: 'languageChanged loaded' },
           interpolation: { escapeValue: false, formatSeparator: ',' },
   });
+
 
 export default i18n;

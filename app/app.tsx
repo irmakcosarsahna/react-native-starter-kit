@@ -1,25 +1,20 @@
-import './utils/helpers/ignore-warnings';
 import React from 'react';
 import { initialWindowMetrics, SafeAreaProvider } from 'react-native-safe-area-context';
 // Modules
 import { Provider } from 'react-redux';
-
 // Store
 import { PersistGate } from 'redux-persist/integration/react';
 import { persistor, store } from '@state/ROOT';
+import * as storage from '@utils/storage';
+// Navigation
 import { enableScreens } from 'react-native-screens';
-import moment from 'moment';
-import { RootNavigator, useNavigationPersistence } from './navigators';
-import * as storage from './utils/storage';
+import { RootNavigator, useNavigationPersistence } from '@navigators';
 // I18n
 import '@utils/i18next';
-import 'moment/locale/tr';
+import { NAVIGATION_PERSISTENCE_KEY } from '@constants';
 
-moment.locale('tr');
 
 enableScreens();
-
-export const NAVIGATION_PERSISTENCE_KEY = 'NAVIGATION_STATE';
 
 function App() {
   const { initialNavigationState, onNavigationStateChange } = useNavigationPersistence(

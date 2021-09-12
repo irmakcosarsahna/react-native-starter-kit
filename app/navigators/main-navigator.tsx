@@ -1,29 +1,32 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import { withNetwork } from '@hocs';
 // Hocs
+import { withNetwork } from '@hocs';
+// Screens
 import { StartMiddleware } from './middleware';
-import { HomeScreen, WelcomeScreen } from '../screens';
+import { HomeScreen, WelcomeScreen } from '@screens';
+// Route Name
+import { HOME, START, WELCOME } from '@constants';
 
 export type PrimaryParamList = {
-    bottomTab: undefined;
+  bottomTab: undefined;
 };
 
 const Stack = createStackNavigator<PrimaryParamList>();
 
 const stacks = [
-    {
-        name: 'StartMiddleware',
-        component: StartMiddleware,
-    },
-    {
-        name: 'WelcomeScreen',
-        component: WelcomeScreen,
-    },
-    {
-        name: 'HomeScreen',
-        component: HomeScreen,
-    },
+  {
+    name: START,
+    component: StartMiddleware,
+  },
+  {
+    name: WELCOME,
+    component: WelcomeScreen,
+  },
+  {
+    name: HOME,
+    component: HomeScreen,
+  },
 ];
 
 const Navigator = () => (

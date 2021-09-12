@@ -3,8 +3,7 @@
  * that we haven't gotten around to replacing yet.
  */
 import { LogBox } from 'react-native';
+import { IGNORE_LOGS } from '@constants';
 
 // prettier-ignore
-LogBox.ignoreLogs([
-  "Require cycle:",
-])
+LogBox.ignoreLogs(IGNORE_LOGS)

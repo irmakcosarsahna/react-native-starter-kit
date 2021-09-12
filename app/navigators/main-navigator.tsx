@@ -33,30 +33,6 @@ const stacks = [
         name: 'HomeScreen',
         component: HomeScreen,
     },
-    {
-        name: 'MarketScreen',
-        component: MarketScreen,
-    },
-    {
-        name: 'GameScreen',
-        component: GameScreen,
-    },
-    {
-        name: 'RatingScreen',
-        component: RatingScreen,
-    },
-    {
-        name: 'SettingsScreen',
-        component: SettingsScreen,
-    },
-    {
-        name: 'HistoryScreen',
-        component: HistoryScreen,
-    },
-    {
-        name: 'FriendsScreen',
-        component: FriendsScreen,
-    },
 ];
 
 const Navigator = () => (

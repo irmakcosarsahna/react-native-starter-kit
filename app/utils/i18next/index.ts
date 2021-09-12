@@ -1,28 +1,33 @@
 import i18n from 'i18next';
-import {initReactI18next} from 'react-i18next';
+import { initReactI18next } from 'react-i18next';
 import * as RNLocalize from 'react-native-localize';
-import {en, tr} from './locales';
+import { en, tr } from './locales';
+import { DEFAULT_LANGUAGE, SUPPORTED_LANGUAGES } from '../../constants';
+import _ from 'lodash';
 
-// the translations
-// (tip move them in a JSON file and import them)
-const locales = RNLocalize.getLocales();
-const langList = ['tr', 'en'];
+// Resources
 const resources = { en: { translation: { ...en } }, tr: { translation: { ...tr } } };
-const currentLanguage = langList.includes(locales[0].languageCode) ? locales[0].languageCode : 'en';
+
+// Device Languages
+const locales = RNLocalize.getLocales();
+// Get Device Language Code
+const deviceLanguageCode = _.get(locales, [0, 'languageCode']);
+// Check support language
+const currentLanguage = SUPPORTED_LANGUAGES.includes(deviceLanguageCode) ? deviceLanguageCode : DEFAULT_LANGUAGE;
 
 i18n
-    .use(initReactI18next) // passes i18n down to react-i18next
-    .init({
-        resources,
-        lng: 'tr',
-        saveMissing: false,
-        appendNamespaceToCIMode: false,
-        nsSeparator: false,
-        keySeparator: '.',
-        ns: ['translation'],
-        defaultNS: 'translation',
-        react: { useSuspense: false, bindI18n: 'languageChanged loaded' },
-        interpolation: { escapeValue: false, formatSeparator: ',' },
-    });
+  .use(initReactI18next)
+  .init({
+          resources,
+          lng: currentLanguage,
+          saveMissing: false,
+          appendNamespaceToCIMode: false,
+          nsSeparator: false,
+          keySeparator: '.',
+          ns: ['translation'],
+          defaultNS: 'translation',
+          react: { useSuspense: false, bindI18n: 'languageChanged loaded' },
+          interpolation: { escapeValue: false, formatSeparator: ',' },
+  });
 
 export default i18n;

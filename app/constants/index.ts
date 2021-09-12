@@ -1,2 +1,2 @@
 export * from './environments';
-export * from './navigations';
+export * from './screens';

@@ -1,7 +1,5 @@
 const isDev = __DEV__;
 
-const test = 'Irmak coşar Şahna';
-
 // Axios
 const REQUEST_URL = 'https://';
 
@@ -19,7 +17,6 @@ const IGNORE_LOGS = [
 ];
 
 export {
-    test,
     REQUEST_URL,
     ACTIVE_TRANSLATION,
     SUPPORTED_LANGUAGES,

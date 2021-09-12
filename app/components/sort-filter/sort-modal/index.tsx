@@ -3,10 +3,13 @@ import { FlatList, Pressable, View } from 'react-native';
 import { Modal, Text } from '@components';
 import { Icon } from '@icons';
 import _ from 'lodash';
-import styles from './style';
 import { SortModalProps } from './sort-modal.props';
+import { useTheme } from '@theme';
+import { createStyles } from './style';
 
 export const SortModal = (props: SortModalProps) => {
+
+  const styles = useTheme(createStyles);
   // Props
   const { acitiveView = false, value = null, isVisible = false, closeFn, data, onPress } = props;
 
@@ -16,14 +19,10 @@ export const SortModal = (props: SortModalProps) => {
   // Onpress
   const _onPress = (item: object, index: string) => {
     setSelectItem(index);
-    if (_.isFunction(onPress)) {
-      closeFn();
-      onPress(item);
-    }
-    if (_.isFunction(item?.onPress)) {
-      closeFn();
-      item?.onPress();
-    }
+
+    _.isFunction(closeFn) && closeFn();
+    _.isFunction(onPress) && onPress(item);
+    _.isFunction(item?.onPress) && item?.onPress();
   };
 
   // Render Item

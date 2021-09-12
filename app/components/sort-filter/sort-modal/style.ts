@@ -1,6 +1,4 @@
 import { StyleSheet, TextStyle, ViewStyle } from 'react-native';
-import { spacing, typography } from '@theme';
-import { colors } from '../../../theme';
 
 type styles = {
   modal?: ViewStyle;
@@ -12,44 +10,49 @@ type styles = {
   cancelTxt?: TextStyle;
 };
 
-export default StyleSheet.create<styles>({
-  modal: {
-    borderRadius: 8,
-    marginTop: spacing[5],
-    marginBottom: 5,
-  },
-  itemContainer: {
-    borderBottomColor: colors.default.background.primary,
-    borderBottomWidth: 0.3,
-    paddingHorizontal: spacing[4],
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
-  pressAble: {
-    flex: 1,
-    paddingVertical: spacing[3],
-  },
-  itemTxt: {
-    fontSize: 13,
-    fontFamily: typography.primaryLight,
-    width: '100%',
-  },
-  activeItemTxt: {
-    color: colors.default.alert.error,
-    fontSize: 13,
-    fontFamily: typography.primaryLight,
-  },
-  modalInner: {
-    paddingTop: -spacing[4],
-    paddingHorizontal: spacing[0],
-    justifyContent: 'flex-start',
-    alignItems: 'flex-start',
-  },
-  cancelTxt: {
-    fontSize: 13,
-    marginLeft: spacing[4],
-    marginTop: spacing[2],
-    marginBottom: -spacing[3],
-  },
-});
+const createStyles = (theme: any) => (
+  StyleSheet.create<styles>({
+    modal: {
+      borderRadius: 8,
+      marginTop: theme.spacing[5],
+      marginBottom: 5,
+    },
+    itemContainer: {
+      borderBottomColor: theme.color.background.primary,
+      borderBottomWidth: 0.3,
+      paddingHorizontal: theme.spacing[4],
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+    },
+    pressAble: {
+      flex: 1,
+      paddingVertical: theme.spacing[3],
+    },
+    itemTxt: {
+      fontSize: 13,
+      fontFamily: theme.typography.primaryLight,
+      width: '100%',
+    },
+    activeItemTxt: {
+      color: theme.color.alert.error,
+      fontSize: 13,
+      fontFamily: theme.typography.primaryLight,
+    },
+    modalInner: {
+      paddingTop: -theme.spacing[4],
+      paddingHorizontal: theme.spacing[0],
+      justifyContent: 'flex-start',
+      alignItems: 'flex-start',
+    },
+    cancelTxt: {
+      fontSize: 13,
+      marginLeft: theme.spacing[4],
+      marginTop: theme.spacing[2],
+      marginBottom: -theme.spacing[3],
+    },
+  })
+);
+
+
+export {createStyles}

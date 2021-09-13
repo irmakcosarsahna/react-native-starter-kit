@@ -17,16 +17,15 @@ export const SortModal = (props: SortModalProps) => {
   const [selectItem, setSelectItem] = useState(value);
 
   // Onpress
-  const _onPress = (item: object, index: string) => {
+  const _onPress = (item: any, index: string) => {
     setSelectItem(index);
-
     _.isFunction(closeFn) && closeFn();
     _.isFunction(onPress) && onPress(item);
     _.isFunction(item?.onPress) && item?.onPress();
   };
 
   // Render Item
-  const renderItem = ({ item, index }) => (
+  const renderItem = ({ item, index }: any) => (
     <View key={index} style={styles.itemContainer}>
       <Pressable onPress={() => _onPress(item, index)} style={styles.pressAble}>
         <Text
@@ -47,7 +46,7 @@ export const SortModal = (props: SortModalProps) => {
   );
 
   // key Extractor
-  const keyExtractor = (r, i) => _.toString(i);
+  const keyExtractor = (d, i) => _.toString(i);
 
   return (
     <Modal

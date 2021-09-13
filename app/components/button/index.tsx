@@ -24,7 +24,8 @@ export const Button = (props: ButtonProps) => {
 
   return (
     <Pressable disabled={disable}
-               style={[viewStyle, disable && { opacity: 0.5 }]} {...rest}>
+               style={[viewStyle, disable && { opacity: 0.5 }]}
+               {...rest}>
       {content}
     </Pressable>
   );

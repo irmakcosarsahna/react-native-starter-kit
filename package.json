@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
+    "initial-load": "npx react-native-rename ${0} && yarn && yarn pods",
     "start": "react-native start --reset-cache",
     "ios": "react-native run-ios",
     "android": "react-native run-android",
@@ -10,16 +11,12 @@
     "lint:fix": "yarn run lint --fix",
     "clear": "watchman watch-del-all && rm -rf $TMPDIR/react-* && rm -rf node_modules && npm cache clean --force && rm -rf package-lock.json && rm -rf ios/build && rm -rf android/app/build && rm -rf ios/Podfile.lock && rm -rf ios/Pods",
     "pods": "cd ios && pod install && cd ..",
+    "pods-update": "cd ios && pod install --repo-update && cd ..",
     "fix": "yarn fix-webview",
-    "intel-pod": "cd ios && arch -x86_64 pod install && cd ..",
     "fix-webview": "cp module_modifications/react-native-webview/apple/RNCWebView.m node_modules/react-native-webview/apple/RNCWebView.m",
-    "apk": "cd android && ./gradlew assembleRelease",
+    "android-apk": "cd android && ./gradlew assembleRelease",
+    "android-release": "npx react-native run-android --variant=release",
     "fresh": "yarn clear && yarn && yarn pods && npx jetifier",
-    "release": "npx react-native run-android --variant=release",
-    "iphone6": "npx react-native run-ios --simulator='iPhone 6'",
-    "iphone8": "npx react-native run-ios --simulator='iPhone 8'",
-    "iphone7plus": "npx react-native run-ios --simulator='iPhone 7 Plus'",
-    "iphoneXsMax": "npx react-native run-ios --simulator='iPhone Xs Max'",
     "prettify": "yarn run lint:fix; prettier --write '**/*.{ts,tsx}' && prettier --write '*.{ts,tsx}'"
   },
   "dependencies": {

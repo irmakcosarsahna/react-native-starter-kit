@@ -88,7 +88,11 @@
   "resolutions": {
     "@types/react": "^17"
   },
-
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn prettify"
+    }
+  },
   "jest": {
     "preset": "react-native",
     "moduleFileExtensions": [

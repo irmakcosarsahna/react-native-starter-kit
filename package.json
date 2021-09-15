@@ -90,7 +90,11 @@
     "@types/react": "^17"
   },
   "lint-staged": {
-    "**/*.{ts,tsx}": "eslint --fix"
+    "*.tsx": [
+      "lint:fix; prettier --write",
+      "prettier --write",
+      "git add"
+    ]
   },
   "jest": {
     "preset": "react-native",

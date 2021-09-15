@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { CommonActions, StackActions } from '@react-navigation/native';
+import { CommonActions,
+  StackActions } from '@react-navigation/native';
 
 // Router Name Ref
 const routeNameRef = React.createRef();
@@ -7,7 +8,8 @@ const routeNameRef = React.createRef();
 const navigationRef = React.createRef();
 
 // Navigate
-const navigate = (name, params = {}) => {
+const navigate = (
+  name, params = {}) => {
   navigationRef.current?.navigate(name, params);
 };
 

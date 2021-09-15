@@ -14,7 +14,6 @@ import '@utils/i18next';
 // Constants
 import { NAVIGATION_PERSISTENCE_KEY } from '@constants';
 
-
 function App() {
   const { initialNavigationState, onNavigationStateChange } = useNavigationPersistence(
     storage,

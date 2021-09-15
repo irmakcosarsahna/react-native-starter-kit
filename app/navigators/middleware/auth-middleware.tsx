@@ -8,12 +8,12 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
 // Start
-const StartMiddleware = ({navigation}) => {
+const StartMiddleware = ({ navigation }) => {
   // Translations
-  const {t} = useTranslation();
+  const { t } = useTranslation();
 
   //  Auth state
-  const {token} = useSelector(({authUser}) => authUser);
+  const { token } = useSelector(({ authUser }) => authUser);
 
   // Yup set config
   yup.setLocale(t('_validations', { returnObjects: true }) || {});

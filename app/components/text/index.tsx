@@ -6,54 +6,52 @@ import { TextProps } from './text.props';
 import { useTranslate } from '../../hooks';
 
 const Text = (props: TextProps) => {
-    const {
-        type = 'default',
-        text,
-        children,
-        size,
-        lineHeight,
-        style: styleOverride,
-        onPress,
-        txtBtnStyle,
-        color,
-        align,
-        ...rest
-    } = props;
+  const {
+    type = 'default',
+    text,
+    children,
+    size,
+    lineHeight,
+    style: styleOverride,
+    onPress,
+    txtBtnStyle,
+    color,
+    align,
+    ...rest
+  } = props;
 
-    // Translations
-    const i18nText = !_.isFunction(text) ? useTranslate(text) : text;
+  // Translations
+  const i18nText = !_.isFunction(text) ? useTranslate(text) : text;
 
-    const content = i18nText || children;
+  const content = i18nText || children;
 
-    // Style
-    const style = _.merge(
-        _.flatten([
-            presets[type] || presets.default,
-            styleOverride,
-            color && {color},
-            size && {fontSize: size},
-            lineHeight && {lineHeight},
-            align && {textAlign: align},
-        ]),
-    );
+  // Style
+  const style = _.merge(
+    _.flatten([
+      presets[type] || presets.default,
+      styleOverride,
+      color && { color },
+      size && { fontSize: size },
+      lineHeight && { lineHeight },
+      align && { textAlign: align },
+    ]),
+  );
 
-    if (onPress) {
-        return (
-            <Pressable style={txtBtnStyle} onPress={onPress}>
-                <ReactNativeText {...rest} style={style}>
-                    {content}
-                </ReactNativeText>
-            </Pressable>
-        );
-    }
-
+  if (onPress) {
     return (
+      <Pressable style={txtBtnStyle} onPress={onPress}>
         <ReactNativeText {...rest} style={style}>
-            {content}
+          {content}
         </ReactNativeText>
+      </Pressable>
     );
+  }
 
-}
+  return (
+    <ReactNativeText {...rest} style={style}>
+      {content}
+    </ReactNativeText>
+  );
+};
 
-
-export {Text}
+export { Text };

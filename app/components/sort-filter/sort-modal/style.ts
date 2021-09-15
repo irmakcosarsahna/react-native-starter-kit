@@ -10,7 +10,7 @@ type styles = {
   cancelTxt?: TextStyle;
 };
 
-const createStyles = (theme: any) => (
+const createStyles = (theme: any) =>
   StyleSheet.create<styles>({
     modal: {
       borderRadius: 8,
@@ -51,8 +51,6 @@ const createStyles = (theme: any) => (
       marginTop: theme.spacing[2],
       marginBottom: -theme.spacing[3],
     },
-  })
-);
+  });
 
-
-export {createStyles}
+export { createStyles };

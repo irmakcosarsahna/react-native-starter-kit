@@ -8,7 +8,6 @@ import { useTheme } from '@theme';
 import { createStyles } from './style';
 
 export const SortModal = (props: SortModalProps) => {
-
   const styles = useTheme(createStyles);
   // Props
   const { acitiveView = false, value = null, isVisible = false, closeFn, data, onPress } = props;

@@ -63,7 +63,12 @@ export default function TabBar({ state, descriptors, navigation }) {
               <Pressable key={label} style={style.item} onPress={onPress}>
                 {label === 'anasayfa' && (
                   <View style={style.inner}>
-                    <Icon name="Home" width={25} height={25} fill={isFocused ? colors.default.alert.error : colors.default.alert.error} />
+                    <Icon
+                      name="Home"
+                      width={25}
+                      height={25}
+                      fill={isFocused ? colors.default.alert.error : colors.default.alert.error}
+                    />
                     <Text
                       style={{
                         ...style.text,
@@ -76,7 +81,12 @@ export default function TabBar({ state, descriptors, navigation }) {
                 )}
                 {label === 'yapkazan' && (
                   <View style={style.inner}>
-                    <Icon name="Game" width={25} height={25} fill={isFocused ? colors.default.alert.error : colors.default.alert.error} />
+                    <Icon
+                      name="Game"
+                      width={25}
+                      height={25}
+                      fill={isFocused ? colors.default.alert.error : colors.default.alert.error}
+                    />
                     <Text
                       style={{
                         ...style.text,
@@ -88,13 +98,21 @@ export default function TabBar({ state, descriptors, navigation }) {
                   </View>
                 )}
                 {label === 'sepet' && (
-                  <LinearGradient colors={[colors.default.alert.error, colors.default.alert.error]} style={style.middleMenu}>
+                  <LinearGradient
+                    colors={[colors.default.alert.error, colors.default.alert.error]}
+                    style={style.middleMenu}
+                  >
                     <Icon name="ShoppingCart" width={40} height={40} fill={colors.default.alert.error} />
                   </LinearGradient>
                 )}
                 {label === 'kategori' && (
                   <View style={style.inner}>
-                    <Icon name="Search" width={25} height={25} fill={isFocused ? colors.default.alert.error : colors.default.alert.error} />
+                    <Icon
+                      name="Search"
+                      width={25}
+                      height={25}
+                      fill={isFocused ? colors.default.alert.error : colors.default.alert.error}
+                    />
                     <Text
                       style={{
                         ...style.text,
@@ -107,7 +125,12 @@ export default function TabBar({ state, descriptors, navigation }) {
                 )}
                 {label === 'profil' && (
                   <View style={style.inner}>
-                    <Icon name="Profile" width={25} height={25} fill={isFocused ? colors.default.alert.error : colors.default.alert.error} />
+                    <Icon
+                      name="Profile"
+                      width={25}
+                      height={25}
+                      fill={isFocused ? colors.default.alert.error : colors.default.alert.error}
+                    />
                     <Text
                       style={{
                         ...style.text,

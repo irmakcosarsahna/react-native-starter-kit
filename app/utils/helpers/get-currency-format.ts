@@ -2,7 +2,6 @@ import _ from 'lodash';
 import 'intl';
 import 'intl/locale-data/jsonp/tr';
 
-
 const getCurrencyFormat = (number) => {
   const locale = 'de-DE';
   const currency = 'TRY';
@@ -17,4 +16,4 @@ const getCurrencyFormat = (number) => {
   return result;
 };
 
-export {getCurrencyFormat}
+export { getCurrencyFormat };

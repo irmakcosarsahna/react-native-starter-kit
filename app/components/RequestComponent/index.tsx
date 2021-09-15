@@ -6,19 +6,14 @@ import _ from 'lodash';
 import { RequestLoader } from './loader';
 
 const RequestComponent = memo(() => {
-    // Redux
-    const queue = useSelector(({ common }) => common.queue);
-    // Check show
-    const isShow = !_.isEmpty(queue);
+  // Redux
+  const queue = useSelector(({ common }) => common.queue);
+  // Check show
+  const isShow = !_.isEmpty(queue);
 
-    if (!isShow)
-        return (
-          <></>
-        );
+  if (!isShow) return <></>;
 
-    return (
-      <RequestLoader />
-    );
+  return <RequestLoader />;
 });
 
-export {RequestComponent};
+export { RequestComponent };

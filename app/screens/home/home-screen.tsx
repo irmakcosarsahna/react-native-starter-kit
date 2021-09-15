@@ -6,7 +6,7 @@ import { Text } from '@components';
 import styles from './styles';
 
 export const HomeScreen = () => (
-    <View style={styles.container}>
-      <Text>Welcome to React Native Starter Kit</Text>
-    </View>
-  );
+  <View style={styles.container}>
+    <Text>Welcome to React Native Starter Kit</Text>
+  </View>
+);

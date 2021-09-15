@@ -16,5 +16,4 @@ const objectToQueryString = (obj) => {
   return results.join('&');
 };
 
-
-export {objectToQueryString}
+export { objectToQueryString };

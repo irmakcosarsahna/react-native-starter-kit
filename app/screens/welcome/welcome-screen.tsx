@@ -6,7 +6,7 @@ import { Text } from '@components';
 import styles from './styles';
 
 export const WelcomeScreen = () => (
-    <View style={styles.container}>
-      <Text>Welcome </Text>
-    </View>
-  );
+  <View style={styles.container}>
+    <Text>Welcome </Text>
+  </View>
+);

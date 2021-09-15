@@ -3,4 +3,4 @@ const logEvent = () => {
   // todo: data push Statistics
 };
 
-export { logEvent}
+export { logEvent };

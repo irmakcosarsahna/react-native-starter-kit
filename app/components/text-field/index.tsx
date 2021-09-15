@@ -70,11 +70,7 @@ export const TextField = (props: TextFieldProps) => {
 
   return (
     <View style={containerStyle}>
-      <Text
-        preset="fieldLabel"
-        text={label}
-        style={error && isFocusStyle ? errorLabelStyle : labelStyle}
-      />
+      <Text preset="fieldLabel" text={label} style={error && isFocusStyle ? errorLabelStyle : labelStyle} />
       <View
         style={[
           error && isFocusStyle ? errorInputStyle : inputContainerStyle,
@@ -117,7 +113,7 @@ export const TextField = (props: TextFieldProps) => {
         {isValid && <Icon name="Check" stroke={colors.default.alert.error} fill="none" />}
         {children}
       </View>
-      {error ? <Text style={infoLabelStyle} text={error}/> : null}
+      {error ? <Text style={infoLabelStyle} text={error} /> : null}
     </View>
   );
 };

@@ -8,8 +8,7 @@ import { ALLOW_FONT_SCALING } from '@constants';
 
 if (!__DEV__) {
   // Clear Console Log
-  console.log = () => {
-  };
+  console.log = () => {};
 }
 
 // Text Allow Font Scaling

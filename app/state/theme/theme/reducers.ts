@@ -4,19 +4,19 @@ import { SET } from './types';
 import { themeProps } from './theme.props';
 
 const INIT_STATE: themeProps = {
-  type: 'default'
+  type: 'default',
 };
 
-const theme = (state = INIT_STATE, {type, payload}) => {
+const theme = (state = INIT_STATE, { type, payload }) => {
   switch (type) {
     case SET:
       return {
         ...state,
-        type: payload
-      }
+        type: payload,
+      };
     default:
       return state;
   }
 };
 
-export {theme};
+export { theme };

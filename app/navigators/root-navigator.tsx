@@ -27,9 +27,9 @@ const onReady = () => {
 };
 
 export const RootNavigator = (props) => (
-    <NavigationContainer ref={navigationRef} onReady={onReady} onStateChange={onStateChange} {...props}>
-      <MainNavigator />
-    </NavigationContainer>
-  );
+  <NavigationContainer ref={navigationRef} onReady={onReady} onStateChange={onStateChange} {...props}>
+    <MainNavigator />
+  </NavigationContainer>
+);
 
 RootNavigator.displayName = 'RootNavigator';

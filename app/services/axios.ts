@@ -24,33 +24,31 @@ axiosInstance.interceptors.request.use(async (config) => {
   }
 
   return config;
-
 });
 
 // on Ful Filled
 const onFulFilled = async (response) => {
   return response.data;
-
 };
 
 // on Rejected
 const onRejected = async (error) => {
-    let msg = '';
-    const { data = {}, status = 0 } = error?.response || {};
-    if (data) {
-      const { message = '' } = _.isEmpty(data?.data) ? data : data?.data;
+  let msg = '';
+  const { data = {}, status = 0 } = error?.response || {};
+  if (data) {
+    const { message = '' } = _.isEmpty(data?.data) ? data : data?.data;
 
-      if (_.isString(message)) {
-        msg = message;
-      } else if (_.isObject(message)) {
-        Object.values(message).map((m, i) => (msg = msg + (i > 0 ? '.' : '') + m));
-      }
+    if (_.isString(message)) {
+      msg = message;
+    } else if (_.isObject(message)) {
+      Object.values(message).map((m, i) => (msg = msg + (i > 0 ? '.' : '') + m));
     }
-    if (!msg) {
-      msg = 'Something went wrong';
-    }
-    return Promise.reject({ msg, status, data });
-  };
+  }
+  if (!msg) {
+    msg = 'Something went wrong';
+  }
+  return Promise.reject({ msg, status, data });
+};
 
 //  Interceptor response
 axiosInstance.interceptors.response.use(onFulFilled, onRejected);

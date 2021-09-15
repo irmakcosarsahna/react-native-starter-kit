@@ -10,10 +10,7 @@ import renderer from 'react-test-renderer';
 import { Text } from '../index';
 
 it('renders Text', () => {
-  const component = renderer.create(
-    <Text text={'test'} />,
-  );
+  const component = renderer.create(<Text text={'test'} />);
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
-

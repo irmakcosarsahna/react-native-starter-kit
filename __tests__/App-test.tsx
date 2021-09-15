@@ -13,7 +13,4 @@ test('Renders App', async () => {
   await act(async () => {
     await create(<App />);
   });
-
-
 });
-

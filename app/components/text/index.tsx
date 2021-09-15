@@ -26,7 +26,7 @@ const Text = (props: TextProps) => {
 
   const content = i18nText || children;
 
-  const [a,b] = useState()
+  const [a, b] = useState();
   // Style
   const style = _.merge(
     _.flatten([

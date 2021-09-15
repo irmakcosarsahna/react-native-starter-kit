@@ -10,10 +10,7 @@ import renderer from 'react-test-renderer';
 import { Text } from '../index';
 
 it('renders Error Text', () => {
-  const component = renderer.create(
-    <Text text={'error test'} />,
-  );
+  const component = renderer.create(<Text text={'error test'} />);
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
-

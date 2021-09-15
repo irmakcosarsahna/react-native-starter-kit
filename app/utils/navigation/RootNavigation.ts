@@ -1,15 +1,13 @@
 import * as React from 'react';
-import { CommonActions,
-  StackActions } from '@react-navigation/native';
+import { CommonActions, StackActions } from '@react-navigation/native';
 
 // Router Name Ref
 const routeNameRef = React.createRef();
 // Navigation rEF
 const navigationRef = React.createRef();
 
-// Navigate
-const navigate = (
-  name, params = {}) => {
+// Navigate"
+const navigate = (name, params = {}) => {
   navigationRef.current?.navigate(name, params);
 };
 

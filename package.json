@@ -90,10 +90,8 @@
     "@types/react": "^17"
   },
   "lint-staged": {
-    "*.tsx": [
-      "lint:fix; prettier --write",
-      "prettier --write",
-      "git add"
+    "*.{ts,tsx,js,jsx}": [
+      "prettier --write"
     ]
   },
   "jest": {

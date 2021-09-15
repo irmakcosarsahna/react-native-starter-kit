@@ -1,6 +1,5 @@
 import axios from 'axios';
 import _ from 'lodash';
-import perf from '@react-native-firebase/perf';
 import { store } from '../state/ROOT';
 import { MAIN_REQUEST_URL } from '../constants';
 

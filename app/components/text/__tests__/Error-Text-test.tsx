@@ -9,9 +9,9 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import { Text } from '../index';
 
-it('renders Text', () => {
+it('renders Error Text', () => {
   const component = renderer.create(
-    <Text text={'test'} />,
+    <Text text={'error test'} />,
   );
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot();

@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Error Text 1`] = `
+<Text
+  style={
+    Array [
+      Object {
+        "color": "rgb(215, 38, 61)",
+        "fontFamily": "Arial",
+        "fontSize": 15,
+      },
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+    ]
+  }
+>
+  error test
+</Text>
+`;

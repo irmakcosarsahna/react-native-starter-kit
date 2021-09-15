@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useState } from 'react';
 import { Pressable, Text as ReactNativeText } from 'react-native';
 import _ from 'lodash';
 import { presets } from './text.presets';
@@ -25,6 +26,7 @@ const Text = (props: TextProps) => {
 
   const content = i18nText || children;
 
+  const [a,b] = useState()
   // Style
   const style = _.merge(
     _.flatten([

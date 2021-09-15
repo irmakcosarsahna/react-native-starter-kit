@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-const createStyles = (theme: any) => (
+const createStyles = (theme: any) =>
   StyleSheet.create({
     container: {
       position: 'absolute',
@@ -26,8 +26,6 @@ const createStyles = (theme: any) => (
       width: 100,
       height: 100,
     },
-  })
-);
+  });
 
-export {createStyles}
-
+export { createStyles };

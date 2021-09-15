@@ -7,7 +7,9 @@ import { colors, spacing } from '../../theme';
 const AddressRenderItem = ({ item, selected }) => (
   <View style={styles.root}>
     <Tet style={styles.txt}> {item?.name || item?.title}</Tet>
-    {selected ? <Icon name="Check" stroke={colors.default.alert.error} width={20} height={18} style={styles.icon} /> : null}
+    {selected ? (
+      <Icon name="Check" stroke={colors.default.alert.error} width={20} height={18} style={styles.icon} />
+    ) : null}
   </View>
 );
 

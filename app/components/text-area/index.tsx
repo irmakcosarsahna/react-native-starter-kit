@@ -9,7 +9,6 @@ import _ from 'lodash';
 const enhance = (style, styleOverride) => _.merge(_.flatten([style, styleOverride]));
 
 export const TextArea = (props: TextAreaProps) => {
-
   const [isFocus, onFocusChange] = useState(false);
   const {
     error,
@@ -32,24 +31,22 @@ export const TextArea = (props: TextAreaProps) => {
   return (
     <View style={containerStyle}>
       <Text
-          style={error ? {...styles.label, ...labelStyle, ...styles.errorLabel} : {...styles.label, ...labelStyle}}
-          text={label}
+        style={error ? { ...styles.label, ...labelStyle, ...styles.errorLabel } : { ...styles.label, ...labelStyle }}
+        text={label}
       />
       <TextInput
-          multiline
-          onChangeText={onChangeText}
-          placeholder={placeholder}
-          numberOfLines={10}
-          style={
-            isFocus ? {...inputStyle, ...focusInputStyle} : error ? {...inputStyle, ...styles.errorInput} : inputStyle
-          }
-          onFocus={() => onFocusChange(true)}
-          onBlur={() => onFocusChange(false)}
+        multiline
+        onChangeText={onChangeText}
+        placeholder={placeholder}
+        numberOfLines={10}
+        style={
+          isFocus ? { ...inputStyle, ...focusInputStyle } : error ? { ...inputStyle, ...styles.errorInput } : inputStyle
+        }
+        onFocus={() => onFocusChange(true)}
+        onBlur={() => onFocusChange(false)}
         value={value}
       />
-      {error && (
-          <Text color={colors.default.alert.error} size={10} text={error}/>
-      )}
+      {error && <Text color={colors.default.alert.error} size={10} text={error} />}
     </View>
   );
 };

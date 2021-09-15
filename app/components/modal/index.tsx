@@ -12,7 +12,7 @@ import { colors } from '../../theme';
 
 export const Modal = (_props) => {
   // Selector
-  const props = useSelector(({modal}: any) => modal);
+  const props = useSelector(({ modal }: any) => modal);
 
   const insets = useSafeAreaInsets();
 
@@ -70,57 +70,44 @@ export const Modal = (_props) => {
   };
 
   return (
-      <ModalComponent
-          animationType="fade"
-          onRequestClose={_closeFn}
-          transparent
-          statusBarTranslucent
-          visible={isVisible}
-      >
-        <View style={{height: '100%', justifyContent: align, alignItems: 'center'}}>
-          <TouchableWithoutFeedback onPress={_closeFn}>
-            <View
-                style={{
-                  position: 'absolute',
-                  top: 0,
-                  bottom: 0,
-                  left: 0,
-                  right: 0,
-                  backgroundColor: colors.default.background.primary,
-                  height: '100%',
-                  width: '100%',
-                }}
-            />
-          </TouchableWithoutFeedback>
-          <View style={[styles.modal, modalStyle, {bottom: bottomSpace}]}>
-            {
-              headerText
-                  ? (
-                      <View style={styles.modalHeader}>
-                        <Text text={headerText}/>
-                        <TouchableHighlight underlayColor="transparent" onPress={_closeFn}>
-                          <Icon name="Close" width={10} height={10} fill={color.line}/>
-                        </TouchableHighlight>
-                      </View>
-                  ) : null
-            }
-            <View style={{...styles.modalInner, ...innerStyle}}>
-              {children || (
-                  <>
-                    {closeIcon && (
-                        <Pressable style={styles.closeIcon} onPress={_closeFn}>
-                          <Icon name="Close" width={10} heigth={10} fill={colors.default.alert.error}/>
-                        </Pressable>
-                    )}
-                    <Icon name={helper?.iconName} width={40} height={40}/>
-                    <Text text={text} size={11} style={styles.modalTxt}/>
+    <ModalComponent animationType="fade" onRequestClose={_closeFn} transparent statusBarTranslucent visible={isVisible}>
+      <View style={{ height: '100%', justifyContent: align, alignItems: 'center' }}>
+        <TouchableWithoutFeedback onPress={_closeFn}>
+          <View
+            style={{
+              position: 'absolute',
+              top: 0,
+              bottom: 0,
+              left: 0,
+              right: 0,
+              backgroundColor: colors.default.background.primary,
+              height: '100%',
+              width: '100%',
+            }}
+          />
+        </TouchableWithoutFeedback>
+        <View style={[styles.modal, modalStyle, { bottom: bottomSpace }]}>
+          {headerText ? (
+            <View style={styles.modalHeader}>
+              <Text text={headerText} />
+              <TouchableHighlight underlayColor="transparent" onPress={_closeFn}>
+                <Icon name="Close" width={10} height={10} fill={color.line} />
+              </TouchableHighlight>
+            </View>
+          ) : null}
+          <View style={{ ...styles.modalInner, ...innerStyle }}>
+            {children || (
+              <>
+                {closeIcon && (
+                  <Pressable style={styles.closeIcon} onPress={_closeFn}>
+                    <Icon name="Close" width={10} heigth={10} fill={colors.default.alert.error} />
+                  </Pressable>
+                )}
+                <Icon name={helper?.iconName} width={40} height={40} />
+                <Text text={text} size={11} style={styles.modalTxt} />
                 <View style={styles.buttonContainer}>
                   {secondButton && (
-                    <Button
-                      style={styles.secondaryButton}
-                      text={secondButton?.text}
-                      onPress={_onSecondPress}
-                    />
+                    <Button style={styles.secondaryButton} text={secondButton?.text} onPress={_onSecondPress} />
                   )}
                   <Button
                     text={buttonText}

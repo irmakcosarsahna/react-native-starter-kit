@@ -10,7 +10,6 @@ import { createStyles } from './styles';
 const loader = require('@assets/lottie/animation.json');
 
 const RequestLoader = memo(() => {
-
   // Style
   const styles = useTheme(createStyles);
 

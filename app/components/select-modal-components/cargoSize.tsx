@@ -14,7 +14,9 @@ const CargoSizeRenderItem = ({ item, selected }) => (
       {' '}
       {cargoNameFormat(item)}
     </Text>
-    {selected ? <Icon name="Check" stroke={colors.default.alert.error} width={20} height={18} style={styles.icon} /> : null}
+    {selected ? (
+      <Icon name="Check" stroke={colors.default.alert.error} width={20} height={18} style={styles.icon} />
+    ) : null}
   </View>
 );
 

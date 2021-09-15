@@ -9,7 +9,6 @@ type styles = {
   placeholder: TextStyle;
 };
 
-
 export default StyleSheet.create<styles>({
   container: {
     flexDirection: 'row',

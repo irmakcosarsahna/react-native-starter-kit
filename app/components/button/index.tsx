@@ -23,9 +23,7 @@ export const Button = (props: ButtonProps) => {
   const content = children || <Text text={text} style={textStyle} color={textColor} />;
 
   return (
-    <Pressable disabled={disable}
-               style={[viewStyle, disable && { opacity: 0.5 }]}
-               {...rest}>
+    <Pressable disabled={disable} style={[viewStyle, disable && { opacity: 0.5 }]} {...rest}>
       {content}
     </Pressable>
   );

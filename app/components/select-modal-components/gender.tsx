@@ -6,11 +6,13 @@ import { colors, spacing } from '../../theme';
 import { Text } from '../text';
 
 const GenderRenderItem = ({ item, selected }) => (
-    <View style={styles.root}>
-      <Text> {item.name}</Text>
-      {selected ? <Icon name="Check" stroke={colors.default.alert.error} width={20} height={18} style={styles.icon} /> : null}
-    </View>
-  );
+  <View style={styles.root}>
+    <Text> {item.name}</Text>
+    {selected ? (
+      <Icon name="Check" stroke={colors.default.alert.error} width={20} height={18} style={styles.icon} />
+    ) : null}
+  </View>
+);
 
 export { GenderRenderItem };
 

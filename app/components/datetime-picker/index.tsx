@@ -10,7 +10,6 @@ import { DateTimePickerProps } from './datetime-picker.props';
 import { colors } from '../../theme';
 
 const DateTimePicker = memo((props: DateTimePickerProps) => {
-
   // Const
   const {
     label,
@@ -32,10 +31,10 @@ const DateTimePicker = memo((props: DateTimePickerProps) => {
 
   // Open
   const open = () =>
-      setState((c) => ({
-        ...c,
-        show: true,
-      }));
+    setState((c) => ({
+      ...c,
+      show: true,
+    }));
 
   // Close
   const close = (data) => {
@@ -49,7 +48,7 @@ const DateTimePicker = memo((props: DateTimePickerProps) => {
 
   return (
     <View style={containerStyle}>
-      <Text style={[styles.label, error && { color: colors.default.alert.error }]} text={label}/>
+      <Text style={[styles.label, error && { color: colors.default.alert.error }]} text={label} />
       <DateTimePickerModal
         locale="tr"
         isVisible={state.show}
@@ -60,7 +59,10 @@ const DateTimePicker = memo((props: DateTimePickerProps) => {
         confirmTextIOS="Onayla"
         cancelTextIOS="İptal"
       />
-      <Pressable onPress={open} style={[styles.container, error && { borderColor: colors.default.alert.error, borderWidth: 1 }]}>
+      <Pressable
+        onPress={open}
+        style={[styles.container, error && { borderColor: colors.default.alert.error, borderWidth: 1 }]}
+      >
         <Text style={styles.placeholder} text={placeholder && moment(placeholder).format(format)} />
         <View style={styles.iconContainer}>
           <Icon name="DateTime" width={26} height={20} />
@@ -71,4 +73,4 @@ const DateTimePicker = memo((props: DateTimePickerProps) => {
   );
 });
 
-export {DateTimePicker}
+export { DateTimePicker };

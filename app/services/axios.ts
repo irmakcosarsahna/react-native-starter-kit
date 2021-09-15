@@ -24,59 +24,18 @@ axiosInstance.interceptors.request.use(async (config) => {
     config.headers.Authorization = `Bearer ${token}`;
   }
 
-  try {
-    const httpMetric = perf().newHttpMetric(config.url, config.method);
-    config.metadata = { httpMetric };
+  return config;
 
-    if (!_.isEmpty(user)) {
-      // add any extra metric attributes if needed
-      httpMetric.putAttribute('userId', user?.id);
-    }
-
-    await httpMetric.start();
-  } finally {
-    return config;
-  }
 });
 
 // on Ful Filled
 const onFulFilled = async (response) => {
-  try {
-    const { user = {} } = store.getState().authUser || {};
+  return response.data;
 
-    // Request was successful, e.g. HTTP code 200
-    const { httpMetric } = response.config.metadata;
-
-    if (!_.isEmpty(user)) {
-      // add any extra metric attributes if needed
-      httpMetric.putAttribute('userId', user?.id);
-    }
-
-    httpMetric.setHttpResponseCode(response.status);
-    httpMetric.setResponseContentType(response.headers['content-type']);
-    await httpMetric.stop();
-  } finally {
-    return response.data;
-  }
 };
 
 // on Rejected
 const onRejected = async (error) => {
-  try {
-    const { user = {} } = store.getState().authUser || {};
-
-    // Request was error
-    const { httpMetric } = error.config.metadata;
-
-    if (!_.isEmpty(user)) {
-      // add any extra metric attributes if needed
-      httpMetric.putAttribute('userId', user?.id);
-    }
-
-    httpMetric.setHttpResponseCode(error.response.status);
-    httpMetric.setResponseContentType(error.response.headers['content-type']);
-    await httpMetric.stop();
-  } finally {
     let msg = '';
     const { data = {}, status = 0 } = error?.response || {};
     if (data) {
@@ -92,8 +51,7 @@ const onRejected = async (error) => {
       msg = 'Something went wrong';
     }
     return Promise.reject({ msg, status, data });
-  }
-};
+  };
 
 //  Interceptor response
 axiosInstance.interceptors.response.use(onFulFilled, onRejected);

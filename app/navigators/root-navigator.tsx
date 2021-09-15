@@ -1,6 +1,5 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import analytics from '@react-native-firebase/analytics';
 import { MainNavigator } from './main-navigator';
 // Root Navigation
 import { navigationRef, routeNameRef } from '../utils/navigation';
@@ -10,12 +9,14 @@ const onStateChange = async () => {
   const previousRouteName = routeNameRef.current;
   const currentRouteName = navigationRef.current?.getCurrentRoute()?.name;
 
-  if (previousRouteName !== currentRouteName) {
-    await analytics().logScreenView({
-      screen_name: currentRouteName,
-      screen_class: currentRouteName,
-    });
-  }
+  // Firebase Config
+
+  // if (previousRouteName !== currentRouteName) {
+  //   await analytics().logScreenView({
+  //     screen_name: currentRouteName,
+  //     screen_class: currentRouteName,
+  //   });
+  // }
 
   // Save the current route name for later comparison
   routeNameRef.current = currentRouteName;

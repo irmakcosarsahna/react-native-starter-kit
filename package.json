@@ -79,6 +79,7 @@
     "eslint": "^7.32.0",
     "husky": "^7.0.2",
     "jest-cli": "^27.2.0",
+    "lint-staged": "^11.1.2",
     "metro-react-native-babel-preset": "^0.66.0",
     "mocha": "^9.1.1",
     "react-native-codegen": "^0.0.7",
@@ -88,6 +89,7 @@
   "resolutions": {
     "@types/react": "^17"
   },
+  "lint-staged": {},
   "jest": {
     "preset": "react-native",
     "moduleFileExtensions": [

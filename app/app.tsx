@@ -7,7 +7,6 @@ import { PersistGate } from 'redux-persist/integration/react';
 import { persistor, store } from '@state/ROOT';
 import * as storage from '@utils/storage';
 // Navigation
-import { enableScreens } from 'react-native-screens';
 import { RootNavigator, useNavigationPersistence } from '@navigators';
 // I18n
 import '@utils/i18next';
@@ -24,7 +23,8 @@ function App() {
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <SafeAreaProvider initialMetrics={initialWindowMetrics}>
-          <RootNavigator initialState={initialNavigationState} onStateChange={onNavigationStateChange} />
+          <RootNavigator initialState={initialNavigationState}
+                         onStateChange={onNavigationStateChange} />
         </SafeAreaProvider>
       </PersistGate>
     </Provider>

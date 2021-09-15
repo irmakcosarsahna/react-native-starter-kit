@@ -7,8 +7,8 @@ import React from 'react';
 
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
-import { Text } from '../app/components';
+import App from '../app/app';
 
-it('renders Text', () => {
-  renderer.create(<Text text={'irmak'} />);
+it('renders App', () => {
+  renderer.create(<App />);
 });

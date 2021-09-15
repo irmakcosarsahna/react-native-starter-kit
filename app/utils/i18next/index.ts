@@ -19,7 +19,6 @@ const deviceLanguageCode = _.get(locales, [0, 'languageCode']);
 // Check support language
 const currentLanguage = SUPPORTED_LANGUAGES.includes(deviceLanguageCode) ? deviceLanguageCode : DEFAULT_LANGUAGE;
 
-console.log('i18n', i18n);
 i18n.use(initReactI18next).init({
   resources,
   lng: currentLanguage,

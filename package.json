@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "initial-load": "npx react-native-rename ${0} && yarn && yarn pods",
-    "pre-commit": "yarn prettify && jest",
+    "pre-commit": "yarn prettify",
     "start": "react-native start --reset-cache",
     "ios": "react-native run-ios",
     "android": "react-native run-android",
@@ -87,11 +87,6 @@
   },
   "resolutions": {
     "@types/react": "^17"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "yarn prettify"
-    }
   },
   "jest": {
     "preset": "react-native",

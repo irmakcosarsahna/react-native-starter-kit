@@ -89,7 +89,9 @@
   "resolutions": {
     "@types/react": "^17"
   },
-  "lint-staged": {},
+  "lint-staged": {
+    "**/*.{ts,tsx}": "eslint --fix"
+  },
   "jest": {
     "preset": "react-native",
     "moduleFileExtensions": [

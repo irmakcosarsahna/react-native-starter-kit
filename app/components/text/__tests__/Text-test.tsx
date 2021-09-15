@@ -10,5 +10,5 @@ import renderer from 'react-test-renderer';
 import { Text } from '../index';
 
 it('renders Text', () => {
-  renderer.create(<Text />);
+  renderer.create(<Text text={'irmak'}/>);
 });

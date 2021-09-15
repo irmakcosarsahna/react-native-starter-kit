@@ -95,9 +95,12 @@
       "json",
       "node"
     ],
+    "verbose": false,
     "transformIgnorePatterns": [
       "node_modules/?!(react-navigation)"
     ],
-    "setupFiles": ["./jest.setup.js"]
+    "setupFiles": [
+      "./jest.setup.js"
+    ]
   }
 }

@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "initial-load": "npx react-native-rename ${0} && yarn && yarn pods",
-    "pre-commit": "yarn prettify",
+    "pre-commit": "yarn prettify && jest",
     "start": "react-native start --reset-cache",
     "ios": "react-native run-ios",
     "android": "react-native run-android",
@@ -15,7 +15,7 @@
     "pods-update": "cd ios && pod install --repo-update && cd ..",
     "fix": "yarn fix-webview",
     "fix-webview": "cp module_modifications/react-native-webview/apple/RNCWebView.m node_modules/react-native-webview/apple/RNCWebView.m",
-    "android-apk": "cd android && ./gradlew assembleRelease",
+    "android-apk": "cd android && ./gradlew clean && ./gradlew assembleRelease",
     "android-release": "npx react-native run-android --variant=release",
     "fresh": "yarn clear && yarn && yarn pods && npx jetifier",
     "prettify": "yarn run lint:fix; prettier --write '**/*.{ts,tsx}' && prettier --write '*.{ts,tsx}'",

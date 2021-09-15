@@ -23,8 +23,7 @@ function App() {
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <SafeAreaProvider initialMetrics={initialWindowMetrics}>
-          <RootNavigator initialState={initialNavigationState}
-                         onStateChange={onNavigationStateChange} />
+          <RootNavigator initialState={initialNavigationState} onStateChange={onNavigationStateChange} />
         </SafeAreaProvider>
       </PersistGate>
     </Provider>

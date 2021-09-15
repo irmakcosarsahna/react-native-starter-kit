@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "initial-load": "npx react-native-rename ${0} && yarn && yarn pods",
-    "pre-commit": "yarn prettify && yarn test",
+    "pre-commit": "npx lint-staged && yarn test",
     "start": "react-native start --reset-cache",
     "ios": "react-native run-ios",
     "android": "react-native run-android",

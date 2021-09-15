@@ -3,8 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { ACTIVE_TRANSLATION } from '@constants';
 
 const useTranslate = (text = '') => {
-  const { t
-  } = useTranslation();
+  const { t } = useTranslation();
 
   return React.useMemo(() => {
     if (ACTIVE_TRANSLATION) {

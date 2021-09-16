@@ -1,5 +1,6 @@
 import _ from 'lodash';
 import ax from '../axios';
+import { AxiosResponse } from 'axios';
 
 // Post Login
 const login = (data: { email: string; password: string }) => ax.post(`/login`, data);

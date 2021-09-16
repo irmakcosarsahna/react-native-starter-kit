@@ -5,6 +5,6 @@ export * from './text-field';
 export * from './modal';
 export * from './datetime-picker';
 export * from './text-area';
-export * from './RequestComponent';
+export * from './request-component';
 export * from './select-modal-components';
 export * from './sort-filter';

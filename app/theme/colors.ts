@@ -1,4 +1,6 @@
-const colors = {
+import { ColorsProps } from './theme.props';
+
+const colors: { default: ColorsProps } = {
   default: {
     background: {
       primary: 'rgb(23, 45, 85)',
@@ -22,18 +24,6 @@ const colors = {
     alert: {
       success: 'rgb(27, 153, 139)',
       error: 'rgb(215, 38, 61)',
-    },
-    slider: {
-      background: {
-        one: '',
-        two: '',
-        three: '',
-      },
-    },
-    avatarBorder: {
-      one: 'rgb(27, 153, 139)',
-      two: '#f6bc5b',
-      three: 'rgb(215, 38, 61)',
     },
   },
 };

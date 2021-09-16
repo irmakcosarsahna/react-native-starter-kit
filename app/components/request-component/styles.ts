@@ -1,7 +1,14 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, ViewStyle } from 'react-native';
+import { themeProps } from '@theme';
 
-const createStyles = (theme: any) =>
-  StyleSheet.create({
+export type stylesProps = {
+  container: ViewStyle;
+  overlay: ViewStyle;
+  gif: ViewStyle;
+};
+
+const createStyles = (theme: themeProps): stylesProps =>
+  StyleSheet.create<stylesProps>({
     container: {
       position: 'absolute',
       zIndex: 9999,
@@ -16,7 +23,7 @@ const createStyles = (theme: any) =>
       left: 0,
       top: 0,
       opacity: 0.5,
-      backgroundColor: theme.colors.background.primary,
+      backgroundColor: theme.color.background.primary,
       width: '100%',
       height: '100%',
       justifyContent: 'center',

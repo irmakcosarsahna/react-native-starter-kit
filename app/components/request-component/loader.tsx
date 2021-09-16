@@ -4,14 +4,14 @@ import { View } from 'react-native';
 import LottieView from 'lottie-react-native';
 // Styles
 import { useTheme } from '@theme';
-import { createStyles } from './styles';
+import { createStyles, stylesProps } from './styles';
 
 // Lottie Animation
 const loader = require('@assets/lottie/animation.json');
 
 const RequestLoader = memo(() => {
   // Style
-  const styles = useTheme(createStyles);
+  const styles: stylesProps = useTheme(createStyles);
 
   return (
     <View style={styles.container}>

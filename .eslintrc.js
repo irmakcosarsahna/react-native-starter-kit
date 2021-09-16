@@ -1,5 +1,5 @@
 module.exports = {
-  env: {es6: true},
+  env: { es6: true },
   extends: ['airbnb', 'prettier'],
   globals: {
     Atomics: 'readonly',
@@ -30,15 +30,15 @@ module.exports = {
     'global-require': 'off',
     'no-nested-ternary': 'off',
     'object-curly-newline': 'off',
-    "import/extensions": [
-      "error",
-      "ignorePackages",
+    'import/extensions': [
+      'error',
+      'ignorePackages',
       {
-        "js": "never",
-        "jsx": "never",
-        "ts": "never",
-        "tsx": "never"
-      }
-    ]
-  }
+        js: 'never',
+        jsx: 'never',
+        ts: 'never',
+        tsx: 'never',
+      },
+    ],
+  },
 };

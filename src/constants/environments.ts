@@ -15,7 +15,7 @@ const NAVIGATION_PERSISTENCE_KEY = 'NAVIGATION_STATE';
 
 // Global
 const GLOBAL_REQUEST_ERROR_MESSAGE = 'common.request_error_message';
-const GOOGLE_API_KEY = 'AIzaSyCpjkt_jx0WqUB8Mzg1hkUIzjQSoaHWI0g';
+const GOOGLE_API_KEY = '';
 const MAP_INFO = { latitudeDelta: 0.004, longitudeDelta: 0.004, latitude: 41.03, longitude: 28.98 };
 
 export {

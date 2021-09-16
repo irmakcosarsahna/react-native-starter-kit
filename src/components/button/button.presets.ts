@@ -1,16 +1,16 @@
 import { TextStyle, ViewStyle } from 'react-native';
-import { colors, spacing, typography } from '../../theme';
+import { colors, spacing, typography } from '@theme';
 
 const BASE_VIEW: ViewStyle = {
-  paddingVertical: spacing[3],
-  paddingHorizontal: spacing[3],
+  paddingVertical: spacing.default[3],
+  paddingHorizontal: spacing.default[3],
   borderRadius: 4,
   justifyContent: 'center',
   alignItems: 'center',
 };
 
 const BASE_TEXT: TextStyle = {
-  paddingHorizontal: spacing[3],
+  paddingHorizontal: spacing.default[3],
   fontSize: 12,
   letterSpacing: 0.2,
 };

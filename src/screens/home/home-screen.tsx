@@ -3,7 +3,7 @@ import { View } from 'react-native';
 // Components
 import { Text } from '@components';
 // Styles
-import styles from './styles';
+import { styles } from './styles';
 
 export const HomeScreen = () => (
   <View style={styles.container}>

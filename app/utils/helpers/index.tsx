@@ -7,3 +7,4 @@ export * from './set-global-veriables';
 export * from './log-event';
 export * from './object-to-query-string';
 export * from './merge-style';
+export * from './error-response-manager';

@@ -12,6 +12,7 @@ export interface timingProps {
 }
 
 export interface colorsProps {
+  primary: string;
   background: {
     primary: string;
     secondary: string;

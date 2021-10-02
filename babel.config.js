@@ -11,6 +11,7 @@ module.exports = {
           '@config': './src/config/',
           '@hocs': './src/hocs/',
           '@router': './src/router/',
+          '@hooks': './src/hooks/',
           '@state': './src/state/',
           '@utils': './src/utils/',
           '@views': './src/views/',

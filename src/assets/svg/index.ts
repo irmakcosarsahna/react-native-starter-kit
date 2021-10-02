@@ -5,12 +5,14 @@ import Profile from './profile.svg';
 import Search from './search.svg';
 import ShoppingCart from './shopping-cart.svg';
 import Fruits from './fruits.svg';
-import { colors } from '../../theme';
+import Check from './check.svg';
+import { colors } from '@theme';
 
 const icons = {
   Home,
   Game,
   Profile,
+  Check,
   Search,
   ShoppingCart,
   Fruits,

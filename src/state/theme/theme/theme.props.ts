@@ -1,3 +1,4 @@
-export interface themeProps {
-  type?: 'default' | 'dark';
+export interface themeReduxProps {
+  root?: 'default' | 'dark';
+  spacing?: 'default' | 'dark';
 }

@@ -1,8 +1,7 @@
 import { StyleSheet, TextStyle, ViewStyle } from 'react-native';
-import { spacing, typography } from '@theme';
-import { colors } from '../../theme';
+import { themeProps } from '@theme';
 
-type styles = {
+type stylesProps = {
   container: ViewStyle;
   inputContainer: ViewStyle;
   input: ViewStyle;
@@ -11,47 +10,58 @@ type styles = {
   label: TextStyle;
   errorLabel: TextStyle;
   infoLabel: TextStyle;
+  activeLabel: TextStyle;
 };
 
-export default StyleSheet.create<styles>({
-  container: {},
-  inputContainer: {
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
-    minHeight: 40,
-    backgroundColor: colors.default.background.primary,
-    borderRadius: 4,
-    paddingHorizontal: spacing[2],
-  },
-  input: {
-    flex: 1,
-    fontFamily: typography.primary,
-    color: colors.default.alert.error,
-    fontSize: 12,
-    fontWeight: '300',
-    height: 40,
-  },
-  errorInput: {
-    borderColor: colors.default.alert.error,
-    borderWidth: 1,
-  },
-  focusInput: {
-    borderColor: colors.default.alert.error,
-    borderWidth: 1,
-  },
-  label: {
-    fontSize: 12,
-    color: colors.default.alert.error,
-    marginBottom: spacing[2],
-  },
-  errorLabel: {
-    color: colors.default.alert.error,
-    marginBottom: spacing[3],
-  },
-  infoLabel: {
-    color: colors.default.alert.error,
-    fontSize: 9,
-    marginTop: spacing[2],
-  },
-});
+const createStyles = (theme: themeProps) =>
+  StyleSheet.create<stylesProps>({
+    container: {
+      marginBottom: 5,
+      marginTop: 15,
+    },
+    inputContainer: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      borderRadius: 30,
+      borderColor: theme.color.border.input,
+      borderWidth: 0.5,
+      paddingHorizontal: 23,
+    },
+    input: {
+      flex: 1,
+      fontFamily: theme.typography.primary,
+      color: theme.color.opacText,
+      fontSize: 16,
+      fontWeight: '300',
+      height: 50,
+    },
+    errorInput: {
+      borderBottomColor: theme.color.primaryDarker,
+      borderBottomWidth: 1,
+    },
+    focusInput: {
+      borderColor: theme.color.default.primary,
+    },
+    label: {
+      fontSize: 14,
+      color: '#1a1a1a',
+    },
+    activeLabel: {
+      fontFamily: theme.typography.primaryBold,
+      fontSize: 12,
+      color: '#666666',
+      backgroundColor: '#fafafa',
+      paddingHorizontal: 4,
+    },
+    errorLabel: {
+      color: theme.color.error,
+      marginBottom: theme.spacing[3],
+    },
+    infoLabel: {
+      color: theme.color.error,
+      fontSize: 9,
+      marginTop: theme.spacing[2],
+    },
+  });
+
+export { createStyles };

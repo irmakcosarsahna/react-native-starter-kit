@@ -2,23 +2,20 @@ import React, { useCallback } from 'react';
 import { Modal as ModalComponent, Pressable, TouchableHighlight, TouchableWithoutFeedback, View } from 'react-native';
 import { Icon } from '@icons';
 import { Button, Text } from '@components';
-import { color } from '@theme';
 import { useDispatch, useSelector } from 'react-redux';
 import { actionClearModal } from '@state/modal';
 import _ from 'lodash';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import styles from './style';
-import { colors } from '../../theme';
+import { useTheme } from '@theme';
+import { mergeStyle } from '@utils';
+import { ModalProps } from './modal.props';
+import { createStyles, stylesProps } from './style';
 
-export const Modal = (_props) => {
+const Modal: React.FC<ModalProps> = (_props) => {
   // Selector
   const props = useSelector(({ modal }: any) => modal);
 
-  const insets = useSafeAreaInsets();
-
-  // Dispatch
-  const dispatch = useDispatch();
-
+  // Props
   const {
     isVisible = false,
     closeFn,
@@ -33,9 +30,19 @@ export const Modal = (_props) => {
     buttonText = 'common.iAgree',
     closeIcon = true,
     onPressButton,
-  } = props?.isVisible ? props : _props;
+  }: ModalProps = props?.isVisible ? props : _props;
 
-  const getIconName = useCallback(() => {
+  // Style
+  const styles: stylesProps = useTheme(createStyles);
+
+  // insets
+  const insets = useSafeAreaInsets();
+
+  // Dispatch
+  const dispatch = useDispatch();
+
+  // Get Icon
+  const getIcon = useCallback(() => {
     switch (type) {
       case 'error':
         return { iconName: 'Error' };
@@ -46,9 +53,10 @@ export const Modal = (_props) => {
     }
   }, [type]);
 
-  const helper = getIconName();
+  // Get Icon Name
+  const icon = getIcon();
 
-  const align = modalAlign === 'top' ? 'flex-start' : modalAlign === 'bottom' ? 'flex-end' : 'center';
+  // Bottom Space
   const bottomSpace = modalAlign === 'bottom' ? insets.bottom : modalAlign === 'top' ? insets.top : null;
 
   // Close Function
@@ -69,44 +77,47 @@ export const Modal = (_props) => {
     _.isFunction(secondButton?.onPress) && secondButton?.onPress();
   };
 
+  // Align
+  const align = modalAlign === 'top' ? 'flex-start' : modalAlign === 'bottom' ? 'flex-end' : 'center';
+
+  // Container Merge
+  const container = mergeStyle(styles.container, {
+    justifyContent: align,
+  });
+
   return (
-    <ModalComponent animationType="fade" onRequestClose={_closeFn} transparent statusBarTranslucent visible={isVisible}>
-      <View style={{ height: '100%', justifyContent: align, alignItems: 'center' }}>
+    <ModalComponent
+      animationType="fade"
+      onRequestClose={_closeFn}
+      transparent
+      statusBarTranslucent
+      visible={!!isVisible}
+    >
+      <View style={container}>
         <TouchableWithoutFeedback onPress={_closeFn}>
-          <View
-            style={{
-              position: 'absolute',
-              top: 0,
-              bottom: 0,
-              left: 0,
-              right: 0,
-              backgroundColor: colors.default.background.primary,
-              height: '100%',
-              width: '100%',
-            }}
-          />
+          <View style={styles.background} />
         </TouchableWithoutFeedback>
         <View style={[styles.modal, modalStyle, { bottom: bottomSpace }]}>
-          {headerText ? (
+          {!!headerText && (
             <View style={styles.modalHeader}>
               <Text text={headerText} />
               <TouchableHighlight underlayColor="transparent" onPress={_closeFn}>
-                <Icon name="Close" width={10} height={10} fill={color.line} />
+                <Icon name="Close" width={10} height={10} fill={'black'} />
               </TouchableHighlight>
             </View>
-          ) : null}
-          <View style={{ ...styles.modalInner, ...innerStyle }}>
-            {children || (
+          )}
+          <View style={[styles.modalInner, innerStyle]}>
+            {!!children || (
               <>
-                {closeIcon && (
+                {!!closeIcon && (
                   <Pressable style={styles.closeIcon} onPress={_closeFn}>
-                    <Icon name="Close" width={10} heigth={10} fill={colors.default.alert.error} />
+                    <Icon name="Close" width={10} heigth={10} fill={'red'} />
                   </Pressable>
                 )}
-                <Icon name={helper?.iconName} width={40} height={40} />
+                <Icon name={icon?.iconName} width={40} height={40} />
                 <Text text={text} size={11} style={styles.modalTxt} />
                 <View style={styles.buttonContainer}>
-                  {secondButton && (
+                  {!!secondButton && (
                     <Button style={styles.secondaryButton} text={secondButton?.text} onPress={_onSecondPress} />
                   )}
                   <Button
@@ -123,3 +134,5 @@ export const Modal = (_props) => {
     </ModalComponent>
   );
 };
+
+export { Modal };

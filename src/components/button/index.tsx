@@ -1,13 +1,14 @@
 import * as React from 'react';
 import { Pressable } from 'react-native';
 import { Text } from '../text';
-import { textPresets, viewPresets } from './button.presets';
 import { ButtonProps } from './button.props';
-import _ from 'lodash';
+import { useTheme } from '@theme';
+import { createStyles, stylesProps } from './button.presets';
+import { mergeStyle } from '@utils';
 
-export const Button = (props: ButtonProps) => {
+const Button: React.FC<React.PropsWithChildren<ButtonProps>> = (props) => {
+  // Props
   const {
-    preset = 'primary',
     text,
     style: styleOverride,
     textStyle: textStyleOverride,
@@ -17,9 +18,16 @@ export const Button = (props: ButtonProps) => {
     ...rest
   } = props;
 
-  const viewStyle = _.merge(_.flatten([viewPresets[preset] || viewPresets.primary, styleOverride]));
-  const textStyle = _.merge(_.flatten([textPresets[preset] || textPresets.primary, textStyleOverride]));
+  // Style
+  const styles: stylesProps = useTheme(createStyles);
 
+  // View Style
+  const viewStyle = mergeStyle(styles.view, styleOverride);
+
+  // Text Style
+  const textStyle = mergeStyle(styles.text, textStyleOverride);
+
+  // Content
   const content = children || <Text text={text} style={textStyle} color={textColor} />;
 
   return (
@@ -28,3 +36,5 @@ export const Button = (props: ButtonProps) => {
     </Pressable>
   );
 };
+
+export { Button };

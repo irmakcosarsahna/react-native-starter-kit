@@ -2,19 +2,13 @@
 
 exports[`renders Text 1`] = `
 <Text
+  allowFontScaling={false}
   style={
-    Array [
-      Object {
-        "color": "rgb(215, 38, 61)",
-        "fontFamily": "Arial",
-        "fontSize": 15,
-      },
-      undefined,
-      undefined,
-      undefined,
-      undefined,
-      undefined,
-    ]
+    Object {
+      "color": "#1A1A1A",
+      "fontFamily": "Arial",
+      "fontSize": 15,
+    }
   }
 >
   test

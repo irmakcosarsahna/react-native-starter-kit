@@ -5,11 +5,23 @@ import { Text } from '@components';
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
 import _ from 'lodash';
 import moment from 'moment';
-import styles from './style';
 import { DateTimePickerProps } from './datetime-picker.props';
-import { colors } from '../../theme';
+// Theme
+import { useTheme } from '@theme';
+import { createStyles, stylesProps } from './style';
+// Utils
+import { mergeStyle } from '@utils';
 
-const DateTimePicker = memo((props: DateTimePickerProps) => {
+// Translation
+import { useTranslation } from 'react-i18next';
+
+interface StateProps {
+  show: boolean;
+  mode: 'date' | 'time' | 'datetime';
+  value: Date;
+}
+
+const DateTimePicker: React.FC<DateTimePickerProps> = memo((props) => {
   // Const
   const {
     label,
@@ -22,11 +34,16 @@ const DateTimePicker = memo((props: DateTimePickerProps) => {
     containerStyle = {},
   } = props;
 
+  const { t, i18n } = useTranslation();
+
+  // Style
+  const styles: stylesProps = useTheme(createStyles);
+
   // State
-  const [state, setState] = useState({
+  const [state, setState] = useState<StateProps>({
     show: false,
     mode: 'date',
-    value: moment(),
+    value: moment().toDate(),
   });
 
   // Open
@@ -37,7 +54,7 @@ const DateTimePicker = memo((props: DateTimePickerProps) => {
     }));
 
   // Close
-  const close = (data) => {
+  const close = (data: Date) => {
     if (data && _.isFunction(onChange)) onChange(moment(data).format(callbackFormat));
 
     setState((c) => ({
@@ -46,29 +63,32 @@ const DateTimePicker = memo((props: DateTimePickerProps) => {
     }));
   };
 
+  // TextStyle
+  const textStyle = mergeStyle(styles.label, error && styles.errorColor);
+
+  // Pressable Container
+  const pressableContainer = mergeStyle(styles.container, error && styles.errorBorder);
+
   return (
     <View style={containerStyle}>
-      <Text style={[styles.label, error && { color: colors.default.alert.error }]} text={label} />
+      <Text style={textStyle} text={label} />
       <DateTimePickerModal
-        locale="tr"
+        locale={i18n.language}
         isVisible={state.show}
         mode="date"
         onConfirm={close}
         onCancel={close}
         {...dateTimeProps}
-        confirmTextIOS="Onayla"
-        cancelTextIOS="İptal"
+        confirmTextIOS={t('common.confirm')}
+        cancelTextIOS={t('common.cancel')}
       />
-      <Pressable
-        onPress={open}
-        style={[styles.container, error && { borderColor: colors.default.alert.error, borderWidth: 1 }]}
-      >
+      <Pressable onPress={open} style={pressableContainer}>
         <Text style={styles.placeholder} text={placeholder && moment(placeholder).format(format)} />
         <View style={styles.iconContainer}>
           <Icon name="DateTime" width={26} height={20} />
         </View>
       </Pressable>
-      {error && <Text text={error} color={colors.default.alert.error} size={9} style={styles.errorTxt} />}
+      {!!error && <Text text={error} size={9} style={styles.errorTxt} />}
     </View>
   );
 });

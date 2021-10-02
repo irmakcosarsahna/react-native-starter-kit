@@ -4,22 +4,43 @@ import { Text } from '@components';
 import { Icon } from '@icons';
 import { SortModal } from './sort-modal';
 import { SortFilterProps } from './sort-filter.props';
-import styles from './style';
+import _ from 'lodash';
+import { mergeStyle } from '@utils';
+import { useTheme } from '@theme';
+import { createStyles, stylesProps } from './style';
 
-export const SortFilter = (props: SortFilterProps) => {
+interface StateProps {
+  sortModal: boolean;
+}
+
+const SortFilter: React.FC<SortFilterProps> = (props) => {
+  // Props
   const { greyStyle = false, style, onFilterPress, sortOptions, onPressSort } = props;
-  const [sortModal, setSortModal] = useState(false);
+
+  // Style
+  const styles: stylesProps = useTheme(createStyles);
+
+  // State
+  const [state, setState] = useState<StateProps>({
+    sortModal: false,
+  });
+
+  // State Functions
+  const setSortModal = () => setState((c) => ({ ...c, sortModal: !c.sortModal }));
+
+  // Style
+  const rootStyle = mergeStyle(greyStyle && styles.greyButtonContainer, styles.buttonsContainer, style);
 
   return (
-    <View style={{ ...(greyStyle ? styles.greyButtonContainer : styles.buttonsContainer), ...style }}>
-      {sortOptions && (
-        <Pressable style={styles.iconContainer} onPress={() => setSortModal(!sortModal)}>
+    <View style={rootStyle}>
+      {!!sortOptions && (
+        <Pressable style={styles.iconContainer} onPress={setSortModal}>
           <Icon name="Sort" />
           <Text text="common.sort" style={styles.iconTxt} />
         </Pressable>
       )}
-      {sortOptions && onFilterPress && <View style={styles.line} />}
-      {onFilterPress && (
+      {!!sortOptions && _.isFunction(onFilterPress) && <View style={styles.line} />}
+      {_.isFunction(onFilterPress) && (
         <>
           <Pressable style={styles.iconContainer} onPress={onFilterPress}>
             <Icon name="FilterCenter" />
@@ -27,12 +48,9 @@ export const SortFilter = (props: SortFilterProps) => {
           </Pressable>
         </>
       )}
-      <SortModal
-        data={sortOptions}
-        onPress={onPressSort}
-        isVisible={sortModal}
-        closeFn={() => setSortModal(!sortModal)}
-      />
+      <SortModal data={sortOptions} onPress={onPressSort} isVisible={state.sortModal} closeFn={setSortModal} />
     </View>
   );
 };
+
+export { SortFilter };

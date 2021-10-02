@@ -1,5 +1,6 @@
 import { TextProps as TextProperties, TextStyle, ViewStyle } from 'react-native';
-import { TextPresets } from './text.presets';
+import { StyleKeyProps } from './style';
+import React from 'react';
 
 export interface TextProps extends TextProperties {
   children?: React.ReactNode;
@@ -7,7 +8,7 @@ export interface TextProps extends TextProperties {
   text?: string | any;
   color?: string;
   style?: TextStyle | TextStyle[];
-  type?: TextPresets;
+  type?: StyleKeyProps;
   size?: number;
   lineHeight?: number;
   onPress?(): void;

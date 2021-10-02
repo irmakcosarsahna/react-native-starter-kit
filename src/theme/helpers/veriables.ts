@@ -2,15 +2,21 @@ import _ from 'lodash';
 import { colors } from '../colors';
 import { typography } from '../typography';
 import { timing } from '../timing';
-import { spacing } from '../spacing';
+import { spacing as _spacing } from '../spacing';
 import { themeProps } from '../theme.props';
 
-const getColor = (type: string) => _.get(colors, type) || {};
-const getSpacing = () => _.get(spacing, 'default') || {};
+// Get Color
+const getColor = ({ root }: { root: string }) => _.get(colors, root) || {};
+// Get Spacing
+const getSpacing = ({ spacing: s, root }: { root: string; spacing: string }) => _.get(_spacing, s || root) || {};
 
-const getTheme = (type: string = 'default'): themeProps => {
-  const color = getColor(type);
-  const spacing = getSpacing();
+const getTheme = (veriables: { spacing: string; root: string }): themeProps => {
+  // Color
+  const color = getColor(veriables);
+  // Spacing
+  const spacing = getSpacing(veriables);
+
+  // Return
   return {
     color,
     typography,

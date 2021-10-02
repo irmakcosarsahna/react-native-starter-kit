@@ -1,17 +1,17 @@
+// Constants
+import { NAVIGATION_PERSISTENCE_KEY } from '@constants';
+// Navigation
+import { RootNavigator, useNavigationPersistence } from '@navigators';
+import { persistor, store } from '@state/ROOT';
+// I18n
+import '@utils/i18next';
+import * as storage from '@utils/storage';
 import React from 'react';
 import { initialWindowMetrics, SafeAreaProvider } from 'react-native-safe-area-context';
 // Redux
 import { Provider } from 'react-redux';
 // Store
 import { PersistGate } from 'redux-persist/integration/react';
-import { persistor, store } from '@state/ROOT';
-import * as storage from '@utils/storage';
-// Navigation
-import { RootNavigator, useNavigationPersistence } from '@navigators';
-// I18n
-import '@utils/i18next';
-// Constants
-import { NAVIGATION_PERSISTENCE_KEY } from '@constants';
 
 function App() {
   const { initialNavigationState, onNavigationStateChange } = useNavigationPersistence(

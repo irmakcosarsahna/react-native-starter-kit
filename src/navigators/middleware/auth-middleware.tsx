@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 // Packages
 import SplashScreen from 'react-native-splash-screen';
+import { HOME_SCREEN, WELCOME_SCREEN } from '@constants';
 import * as yup from 'yup';
 // Translation
 import { useTranslation } from 'react-i18next';
@@ -22,9 +23,9 @@ const StartMiddleware = ({ navigation }) => {
     // Check login
     if (token) {
       // navigation.replace('authStack', { screen: 'individualDocs', params: { goBack: false } });
-      navigation.replace('HomeScreen');
+      navigation.replace(HOME_SCREEN);
     } else {
-      navigation.replace('WelcomeScreen');
+      navigation.replace(WELCOME_SCREEN);
     }
     // Hide Splash
     SplashScreen.hide();

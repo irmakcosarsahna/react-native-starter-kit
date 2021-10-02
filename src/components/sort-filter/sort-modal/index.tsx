@@ -7,7 +7,7 @@ import { SortModalProps } from './sort-modal.props';
 import { useTheme } from '@theme';
 import { createStyles } from './style';
 
-export const SortModal = (props: SortModalProps) => {
+const SortModal: React.FC<SortModalProps> = (props) => {
   const styles = useTheme(createStyles);
   // Props
   const { acitiveView = false, value = null, isVisible = false, closeFn, data, onPress } = props;
@@ -67,3 +67,5 @@ export const SortModal = (props: SortModalProps) => {
     </Modal>
   );
 };
+
+export { SortModal };

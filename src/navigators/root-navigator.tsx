@@ -3,6 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { MainNavigator } from './main-navigator';
 // Root Navigation
 import { navigationRef, routeNameRef } from '../utils/navigation';
+import { ROOT_NAVIGATOR } from '@constants';
 
 // state Change
 const onStateChange = async () => {
@@ -32,4 +33,4 @@ export const RootNavigator = (props) => (
   </NavigationContainer>
 );
 
-RootNavigator.displayName = 'RootNavigator';
+RootNavigator.displayName = ROOT_NAVIGATOR;

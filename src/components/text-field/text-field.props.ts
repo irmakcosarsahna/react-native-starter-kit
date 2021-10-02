@@ -22,4 +22,5 @@ export interface TextFieldProps extends TextInputProps {
   isFocusStyle?: boolean;
   isValid?: boolean;
   children?: React.ReactNode;
+  require?: boolean;
 }

@@ -7,7 +7,7 @@ export type stylesProps = {
   gif: ViewStyle;
 };
 
-const createStyles = (theme: themeProps): stylesProps =>
+const createStyles = (theme: themeProps) =>
   StyleSheet.create<stylesProps>({
     container: {
       position: 'absolute',

@@ -4,8 +4,8 @@ import { Icon } from '@icons';
 import { colors, spacing } from '../../theme';
 import { Text } from '../text';
 
-// Render City
-const ActivityCategories = ({ item, selected }) => (
+// Render Test
+const Example = ({ item, selected }) => (
   <View style={styles.root}>
     <Text style={styles.txt}> {item.name}</Text>
     {selected ? (
@@ -14,7 +14,7 @@ const ActivityCategories = ({ item, selected }) => (
   </View>
 );
 
-export { ActivityCategories };
+export { Example };
 
 const styles = StyleSheet.create({
   root: {

@@ -2,20 +2,22 @@ import { ColorsProps } from './theme.props';
 
 const colors: { default: ColorsProps } = {
   default: {
+    primary: '#E50019',
     background: {
-      primary: 'rgb(23, 45, 85)',
-      secondary: 'rgb(34, 68, 114)',
+      primary: '#FAFAFA',
+      secondary: '#FAFAFA',
     },
     text: {
-      primary: 'rgb(0,0,0)',
-      secondary: 'rgb(241, 250, 238)',
+      primary: '#1A1A1A',
+      secondary: '#666666',
+      white: '#FFFFFF',
     },
     button: {
-      background: 'rgb(230, 57, 70)',
-      border: 'rgb(241, 250, 238)',
+      background: '#555555',
+      disable: '#CCCCCC',
     },
     other: {
-      primary: 'rgb(168, 218, 220)',
+      primary: '#E50019',
     },
     shadow: {
       primary: '#000',
@@ -24,6 +26,18 @@ const colors: { default: ColorsProps } = {
     alert: {
       success: 'rgb(27, 153, 139)',
       error: 'rgb(215, 38, 61)',
+    },
+    icon: {
+      color: '#E50019',
+    },
+    box: {
+      primary: '#F2F2F2',
+      secondary: '#262626',
+    },
+    border: {
+      primary: '#E1E1E1',
+      secondary: '#EEEFF3',
+      input: '#b7b7b7',
     },
   },
 };

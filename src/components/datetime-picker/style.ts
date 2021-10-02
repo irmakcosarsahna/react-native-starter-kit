@@ -1,46 +1,58 @@
 import { StyleSheet, TextStyle, ViewStyle } from 'react-native';
-import { colors, spacing } from '../../theme';
+import { themeProps } from '@theme';
 
-type styles = {
+export type stylesProps = {
   container: ViewStyle;
   iconContainer: ViewStyle;
   label: TextStyle;
   errorTxt: TextStyle;
+  errorColor: TextStyle;
   placeholder: TextStyle;
+  errorBorder: ViewStyle;
 };
 
-export default StyleSheet.create<styles>({
-  container: {
-    flexDirection: 'row',
-    paddingHorizontal: spacing[1],
-    alignItems: 'center',
-    paddingVertical: spacing[1],
-    justifyContent: 'space-between',
-    backgroundColor: colors.default.background.primary,
-    borderRadius: 4,
-    marginTop: spacing[2],
-    marginBottom: spacing[3],
-  },
-  placeholder: {
-    color: colors.default.alert.error,
-    fontSize: 13,
-    marginLeft: spacing[2],
-  },
-  iconContainer: {
-    height: 34,
-    width: 34,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  label: {
-    textTransform: 'uppercase',
-    fontSize: 12,
-    color: colors.default.alert.error,
-    letterSpacing: 0.2,
-    marginBottom: spacing[1],
-  },
-  errorTxt: {
-    marginTop: -spacing[1],
-    marginBottom: spacing[4],
-  },
-});
+const createStyles = (theme: themeProps) =>
+  StyleSheet.create<stylesProps>({
+    container: {
+      flexDirection: 'row',
+      paddingHorizontal: theme.spacing[1],
+      alignItems: 'center',
+      paddingVertical: theme.spacing[1],
+      justifyContent: 'space-between',
+      backgroundColor: theme.color.background.primary,
+      borderRadius: 4,
+      marginTop: theme.spacing[2],
+      marginBottom: theme.spacing[3],
+    },
+    placeholder: {
+      color: theme.color.alert.error,
+      fontSize: 13,
+      marginLeft: theme.spacing[2],
+    },
+    iconContainer: {
+      height: 34,
+      width: 34,
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    label: {
+      textTransform: 'uppercase',
+      fontSize: 12,
+      color: theme.color.alert.error,
+      letterSpacing: 0.2,
+      marginBottom: theme.spacing[1],
+    },
+    errorTxt: {
+      marginTop: -theme.spacing[1],
+      marginBottom: theme.spacing[4],
+    },
+    errorColor: {
+      color: theme.color.alert.error,
+    },
+    errorBorder: {
+      borderColor: theme.color.alert.error,
+      borderWidth: 1,
+    },
+  });
+
+export { createStyles };

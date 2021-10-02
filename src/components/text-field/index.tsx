@@ -1,25 +1,25 @@
-import React, { useState } from 'react';
-import { Pressable, TextInput, TextStyle, View, ViewStyle } from 'react-native';
-import { color } from '@theme';
+import React, { useEffect, useRef, useState } from 'react';
+import { Animated, Pressable, TextInput, View } from 'react-native';
 import { Icon } from '@icons';
 import { TextInputMask } from 'react-native-masked-text';
-import TextFieldProps from './text-field.props';
-import styles from './style';
+import { createStyles, stylesProps } from './style';
 import { Text } from '../text';
-import { useTranslate } from '../../hooks';
-import { colors } from '../../theme';
-import _ from 'lodash';
+import { colors, useTheme } from '@theme';
+import { useTranslation } from 'react-i18next';
+import { mergeStyle } from '@utils';
+import { TextFieldProps } from './text-field.props';
 
-const PRESETS: { [name: string]: ViewStyle } = {
-  default: {},
-};
+interface StateProps {
+  isActive: boolean;
+  toggle: boolean;
+  isFocus: boolean;
+}
 
-const enhance = (style, styleOverride) => _.merge(_.flatten([style, styleOverride]));
+const TextField: React.FC<TextFieldProps> = (props) => {
+  // Translation
+  const { t } = useTranslation();
 
-export const TextField = (props: TextFieldProps) => {
-  const [isFocus, onFocusChange] = useState(false);
-  const [toggle, setToggle] = useState(true);
-
+  // Props
   const {
     placeholder,
     label,
@@ -40,55 +40,132 @@ export const TextField = (props: TextFieldProps) => {
     isValid = false,
     children,
     value,
+    require,
     ...rest
   } = props;
 
-  let containerStyle: ViewStyle = { ...styles.container, ...PRESETS[preset] };
-  containerStyle = enhance(containerStyle, styleOverride);
+  // Style
+  const styles: stylesProps = useTheme(createStyles);
 
-  let inputContainerStyle: ViewStyle = styles.inputContainer;
-  inputContainerStyle = enhance(inputContainerStyle, inputContainerStyleOverride);
+  // Container Style
+  const containerStyle = mergeStyle(styles.container, styleOverride);
 
-  let inputStyle: TextStyle = styles.input;
-  inputStyle = enhance(inputStyle, inputStyleOverride);
+  // Input Container Style
+  const inputContainerStyle = mergeStyle(styles.inputContainer, inputContainerStyleOverride);
 
-  let errorInputStyle: ViewStyle = { ...styles.inputContainer, ...styles.errorInput };
-  errorInputStyle = enhance(errorInputStyle, errorInputStyleOverride);
+  // Input Style
+  const inputStyle = mergeStyle(styles.input, inputStyleOverride);
 
-  let focusInputStyle: ViewStyle = { ...styles.inputContainer, ...styles.focusInput };
-  focusInputStyle = enhance(focusInputStyle, focusInputStyleOverride);
+  // Error Input Style
+  const errorInputStyle = mergeStyle(styles.inputContainer, styles.errorInput, errorInputStyleOverride);
 
-  let errorLabelStyle: TextStyle = { ...styles.label, ...styles.errorLabel };
-  errorLabelStyle = enhance(errorLabelStyle, errorLabelStyleOverride);
+  // Focus Input Style
+  const focusInputStyle = mergeStyle(styles.inputContainer, styles.focusInput, focusInputStyleOverride);
 
-  const labelStyle: TextStyle = styles.label;
+  // Info Label Style
+  const infoLabelStyle = mergeStyle(styles.infoLabel, infoLabelStyleOverride);
 
-  let infoLabelStyle: TextStyle = styles.infoLabel;
-  infoLabelStyle = enhance(infoLabelStyle, infoLabelStyleOverride);
+  // Actual Placeholder
+  const actualPlaceholder = placeholder ? t(placeholder) : '';
 
-  const actualPlaceholder = useTranslate(placeholder);
+  // Translate
+  const translateY = useRef(new Animated.Value(2)).current;
+
+  // State
+  const [state, setState] = useState<StateProps>({
+    isActive: false,
+    toggle: false,
+    isFocus: false,
+  });
+
+  // State Functions
+  const setIsActive = (isActive: boolean) => setState((c) => ({ ...c, isActive }));
+  const onFocusChange = (isFocus: boolean) => setState((c) => ({ ...c, isFocus }));
+  const setToggle = (toggle: boolean) => setState((c) => ({ ...c, toggle }));
+
+  // Ref
+  const inputElementRef = useRef();
+
+  // Use Effect
+  useEffect(() => {
+    if (value) {
+      onFocus();
+    }
+
+    inputElementRef?.current?.setNativeProps({});
+  }, [value]);
+
+  // On Focus
+  const onFocus = () => {
+    setIsActive(true);
+    onFocusChange(true);
+    slideIn();
+  };
+
+  // On blur
+  const onBlur = () => {
+    setIsActive(false);
+    onFocusChange(false);
+    !value && slideOut();
+  };
+
+  // Slide Out
+  const slideOut = () => {
+    Animated.timing(translateY, {
+      toValue: 2,
+      duration: 250,
+      useNativeDriver: false,
+    }).start();
+  };
+
+  // Slide In
+  const slideIn = () => {
+    Animated.timing(translateY, {
+      toValue: -20,
+      duration: 250,
+      useNativeDriver: false,
+    }).start();
+  };
 
   return (
     <View style={containerStyle}>
-      <Text preset="fieldLabel" text={label} style={error && isFocusStyle ? errorLabelStyle : labelStyle} />
+      <Animated.View
+        style={{
+          position: 'absolute',
+          left: 17,
+          top: 13,
+          bottom: 0,
+          zIndex: 1,
+          transform: [
+            {
+              translateY: translateY,
+            },
+          ],
+        }}
+      >
+        <View style={{ flexDirection: 'row' }}>
+          <Text text={placeholder} style={state.isActive ? styles.activeLabel : styles.label} />
+          {require && <Text text="*" style={state.isActive ? styles.activeLabel : styles.label} />}
+        </View>
+      </Animated.View>
       <View
         style={[
           error && isFocusStyle ? errorInputStyle : inputContainerStyle,
-          isFocus && isFocusStyle ? focusInputStyle : inputContainerStyle,
+          state.isFocus && isFocusStyle ? focusInputStyle : inputContainerStyle,
         ]}
       >
         {leftIcon}
         {type === 'default' ? (
           <TextInput
-            secureTextEntry={secureTextEntry && toggle}
-            placeholder={actualPlaceholder}
+            ref={inputElementRef}
+            secureTextEntry={secureTextEntry && state.toggle}
             placeholderTextColor={colors.default.alert.error}
-            underlineColorAndroid={color.transparent}
+            underlineColorAndroid={'transparent'}
             keyboardType={keyboardType}
             value={value}
             {...rest}
-            onFocus={() => onFocusChange(true)}
-            onBlur={() => onFocusChange(false)}
+            onFocus={onFocus}
+            onBlur={onBlur}
             style={inputStyle}
           />
         ) : (
@@ -96,7 +173,7 @@ export const TextField = (props: TextFieldProps) => {
             type={type}
             placeholder={actualPlaceholder}
             placeholderTextColor={colors.default.alert.error}
-            underlineColorAndroid={color.transparent}
+            underlineColorAndroid={'transparent'}
             value={value}
             {...rest}
             onFocus={() => onFocusChange(true)}
@@ -106,14 +183,16 @@ export const TextField = (props: TextFieldProps) => {
           />
         )}
         {secureTextEntry && (
-          <Pressable onPress={() => setToggle(!toggle)}>
-            <Icon name={toggle ? 'EyeOn' : 'EyeOff'} fill={colors.default.alert.error} />
+          <Pressable onPress={() => setToggle(!state.toggle)}>
+            <Icon name={state.toggle ? 'EyeOn' : 'EyeOff'} fill={colors.default.alert.error} width={24} height={24} />
           </Pressable>
         )}
         {isValid && <Icon name="Check" stroke={colors.default.alert.error} fill="none" />}
         {children}
       </View>
-      {error ? <Text style={infoLabelStyle} text={error} /> : null}
+      {!!error && <Text style={infoLabelStyle} text={error} />}
     </View>
   );
 };
+
+export { TextField };

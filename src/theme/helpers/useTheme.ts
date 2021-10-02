@@ -1,13 +1,16 @@
+import { themeProps } from '@theme/theme.props';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { getTheme } from './veriables';
-import { themeProps } from '../../state/theme/theme/theme.props';
 
-const useTheme = (fn: any): any => {
-  const { type = 'default' } = useSelector(({ theme }): themeProps => theme);
+const useTheme = (fn: any) => {
+  // Veriables
+  const veriables = useSelector(({ theme }: themeProps) => theme);
 
-  const theme = getTheme(type);
+  // Get theme
+  const theme = getTheme(veriables);
 
+  // Return
   return React.useMemo(() => fn(theme), [fn, theme]);
 };
 

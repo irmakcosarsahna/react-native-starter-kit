@@ -1,4 +1,4 @@
 const typeNamespace = 'THEME_';
 
-// LOGIN
+// Set Theme
 export const SET = `${typeNamespace}SET`;

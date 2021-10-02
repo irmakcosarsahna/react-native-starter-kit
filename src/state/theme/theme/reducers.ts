@@ -1,10 +1,12 @@
 // Types
 import { SET } from './types';
 // Props
-import { themeProps } from './theme.props';
+// Props
+import { themeReduxProps } from './theme.props';
 
-const INIT_STATE: themeProps = {
-  type: 'default',
+const INIT_STATE: themeReduxProps = {
+  root: 'default',
+  spacing: 'default',
 };
 
 const theme = (state = INIT_STATE, { type, payload }) => {
@@ -12,7 +14,7 @@ const theme = (state = INIT_STATE, { type, payload }) => {
     case SET:
       return {
         ...state,
-        type: payload,
+        root: payload,
       };
     default:
       return state;
